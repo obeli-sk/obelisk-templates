@@ -1,0 +1,5 @@
+package testing:fibo;
+
+interface fibo {
+    fibo: func(n: u8) -> u64;
+}
