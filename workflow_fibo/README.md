@@ -40,11 +40,14 @@ Build the workflow in release mode:
 cargo build --release
 ```
 
-An additional step is required to transform the Core WASM file into a WASM Component:
+Unlike when building an activity, an additional step is required to transform the 
+Core WASM file into a WASM Component:
 ```sh
 wasm-tools component new target/wasm32-unknown-unknown/release/workflow_myfibo.wasm \
  -o target/wasm32-unknown-unknown/release/workflow_myfibo_component.wasm
 ```
+This is needed because activities are built with `wasm32-wasip2` target, whereas
+workflows are built with `wasm32-unknown-unknown` target.
 
 ### Run the Server
 Start the server using the provided [obelisk.toml](./obelisk.toml) configuration:
