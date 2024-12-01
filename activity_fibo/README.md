@@ -22,7 +22,7 @@ If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkg
 ### Generate the Template
 Run the following command to create a new project based on this template:
 ```sh
-cargo generate obeli-sk/obelisk-templates activity_fibo --name activity_myfibo
+cargo-generate generate obeli-sk/obelisk-templates activity_fibo --name activity_myfibo
 ```
 
 ### Build the Activity
