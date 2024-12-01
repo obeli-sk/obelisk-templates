@@ -78,4 +78,4 @@ Execution took 1.903155ms.
 ```
 
 ## Next steps
-Create a workflow that uses this activity.
+Create a workflow that uses this activity. See the [workflow_fibo](../workflow_fibo) template.
