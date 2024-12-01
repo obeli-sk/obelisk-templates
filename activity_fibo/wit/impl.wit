@@ -1,5 +1,5 @@
 package any:any;
 
 world any {
-    export testing:fibo/fibo;
+    export testing-namespace:testing-package/testing-exported-interface;
 }
