@@ -1,0 +1,25 @@
+api_listening_addr = "127.0.0.1:5005" # Address and port on which the API server will listen. Must match `obelisk_webui` TARGET_URL
+
+[[activity_wasm]]
+name = "activity_myfibo"
+location.path = "../activity-myfibo/target/wasm32-wasip2/release/activity_myfibo.wasm"
+
+[[workflow]]
+name = "workflow_myfibo"
+location.path = "target/wasm32-unknown-unknown/release/workflow_myfibo_component.wasm"
+
+[[http_server]]
+name = "webui"
+listening_addr = "127.0.0.1:8080"
+
+[[webhook_wasm]]
+name = "obelisk_webui"
+http_server = "webui"
+location.oci = "docker.io/getobelisk/webui:2024-11-28@sha256:2016b609dde45bd6702f5f0dbef8a50872e83d5a2164703f94bb4c27ab741378"
+routes = [{ route = "" }]
+forward_stdout = "stderr"
+forward_stderr = "stderr"
+env_vars = [
+    # Must match `api_listening_addr`
+    "TARGET_URL=http://127.0.0.1:5005",
+]

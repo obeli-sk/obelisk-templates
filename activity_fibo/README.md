@@ -15,14 +15,14 @@ Ensure you have the following installed before using the template:
 * **[cargo-generate](https://crates.io/crates/cargo-generate):** Install with `cargo install --locked cargo-generate`.
 * **[obelisk](https://github.com/obeli-sk/obelisk):** Install with `cargo install --locked obelisk`.
 
-If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkgs#cargo-component`.
+If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkgs#cargo-generate`.
 
 ## Getting Started
 
 ### Generate the Template
 Run the following command to create a new project based on this template:
 ```sh
-cargo generate obeli-sk/obelisk-templates-rust activity_fibo --name activity_myfibo
+cargo generate obeli-sk/obelisk-templates activity_fibo --name activity_myfibo
 ```
 
 ### Build the Activity

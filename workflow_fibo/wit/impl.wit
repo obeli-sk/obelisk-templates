@@ -1,0 +1,12 @@
+package any:any;
+
+world any {
+    // Exports two functions: `fiboa`, `fiboa-concurrent`
+    export template-fibo:workflow/fibo-workflow-ifc;
+    // Needed for `fiboa`, calls the activity directly:
+    import template-fibo:activity/fibo-activity-ifc;
+    // Needed for `fiboa-concurrent`, calls the activity using a join set:
+    import template-fibo:activity-obelisk-ext/fibo-activity-ifc;
+    import obelisk:types/execution;
+    import obelisk:workflow/host-activities;
+}
