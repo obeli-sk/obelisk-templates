@@ -1,4 +1,4 @@
-use exports::testing_namespace::testing_package::testing_exported_interface::Guest;
+use exports::template_fibo::activity::fibo_activity_ifc::Guest;
 use wit_bindgen::generate;
 
 generate!({ generate_all });

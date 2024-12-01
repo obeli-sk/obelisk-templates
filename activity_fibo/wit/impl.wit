@@ -1,5 +1,5 @@
 package any:any;
 
 world any {
-    export testing-namespace:testing-package/testing-exported-interface;
+    export template-fibo:activity/fibo-activity-ifc;
 }

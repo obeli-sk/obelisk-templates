@@ -1,0 +1,5 @@
+package template-fibo:activity;
+
+interface fibo-activity-ifc {
+    fibo: func(n: u8) -> u64;
+}

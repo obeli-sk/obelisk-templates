@@ -1,5 +1,0 @@
-package testing-namespace:testing-package;
-
-interface testing-exported-interface {
-    fibo: func(n: u8) -> u64;
-}
