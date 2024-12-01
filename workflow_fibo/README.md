@@ -14,6 +14,7 @@ Ensure you have the following installed before using the template:
 
 * **[Rust](https://rustup.rs/):** Install via `rustup` (see [rust-toolchain.toml](./rust-toolchain.toml) for the minimal supported version).
 * **[cargo-generate](https://crates.io/crates/cargo-generate):** Install with `cargo install --locked cargo-generate`.
+* **[wasm-tools](https://crates.io/crates/wasm-tools):** Install with `cargo install --locked wasm-tools`.
 * **[obelisk](https://github.com/obeli-sk/obelisk):** Install with `cargo install --locked obelisk`.
 
 If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkgs#cargo-generate`.
