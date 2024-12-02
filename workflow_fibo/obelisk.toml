@@ -2,11 +2,12 @@ api_listening_addr = "127.0.0.1:5005" # Address and port on which the API server
 
 [[activity_wasm]]
 name = "activity_myfibo"
-location.path = "../activity-myfibo/target/wasm32-wasip2/release/activity_myfibo.wasm"
+# location.path = "../activity-myfibo/target/wasm32-wasip2/release/activity_myfibo.wasm"
+location.oci = "docker.io/getobelisk/example_activity_fibo_template:latest@sha256:bd2899c29ee1664db03a68dd17cc59a56e041abd58ef7dc9cc31a6e05c90606b"
 
 [[workflow]]
 name = "workflow_myfibo"
-location.path = "target/wasm32-unknown-unknown/release/workflow_myfibo_component.wasm"
+location.path = "target/wasm32-unknown-unknown/release/workflow_myfibo.wasm"
 
 [[http_server]]
 name = "webui"
