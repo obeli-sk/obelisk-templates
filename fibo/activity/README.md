@@ -22,7 +22,7 @@ If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkg
 ### Generate the Template
 Run the following command to create a new project based on this template:
 ```sh
-cargo-generate generate obeli-sk/obelisk-templates activity_fibo --name activity_myfibo
+cargo-generate generate obeli-sk/obelisk-templates fibo/activity --name activity_myfibo
 ```
 
 ### Build the Activity
@@ -39,8 +39,11 @@ Build the activity in release mode:
 cargo build --release
 ```
 
+Note: The built WASM Component "target/wasm32-wasip2/release/{{crate_name}}.wasm" is
+already part of the provided [obelisk.toml](./obelisk.toml) configuration file.
+
 ### Run the Server
-Start the server using the provided [obelisk.toml](./obelisk.toml) configuration:
+Start the server:
 ```sh
 obelisk server run
 ```
@@ -78,4 +81,14 @@ Execution took 1.903155ms.
 ```
 
 ## Next steps
-Create a workflow that uses this activity. See the [workflow_fibo](../workflow_fibo) template.
+
+### Push the WASM Component to an OCI Registry
+If you have an account on [Docker Hub](https://hub.docker.com), [GitHub Container Registry](https://github.com/container-registry/)
+or other OCI Registry, you can push the WASM:
+```sh
+obelisk client component push "target/wasm32-wasip2/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>
+```
+You can then update the `obelisk.toml` - replace `location.path` with `location.oci = "docker.io/<your account>/<your repo>:<tag>@sha256:<digest>"`.
+
+### Build a workflow that uses this activity
+Create a workflow that uses this activity. See the [fibo/workflow](../workflow) template.
