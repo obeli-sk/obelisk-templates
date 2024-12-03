@@ -90,4 +90,5 @@ Execution took 1.567253252s.
 ```
 
 ## Next steps
-Run the `fiboa-concurrent` workflow.
+* Run the `fiboa-concurrent` workflow.
+* Try restarting the server in the middle of a workflow, observe the event log in the web UI.
