@@ -1,0 +1,5 @@
+package template-http:activity;
+
+interface http-get {
+    get: func(url: string) -> result<string, string>;
+}

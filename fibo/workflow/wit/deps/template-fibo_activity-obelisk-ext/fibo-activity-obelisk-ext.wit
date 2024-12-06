@@ -1,3 +1,4 @@
+// Note: this file will be generated in a future version
 package template-fibo:activity-obelisk-ext;
 
 interface fibo-activity-ifc {

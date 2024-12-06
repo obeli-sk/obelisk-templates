@@ -1,0 +1,16 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+anyhow = "1.0"
+waki = "0.4.2"
+wit-bindgen = "0.36.0"
+
+[profile.release]
+opt-level = "s"

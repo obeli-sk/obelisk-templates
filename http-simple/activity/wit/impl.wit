@@ -1,0 +1,6 @@
+package any:any;
+
+world any {
+    export template-http:activity/http-get;
+    import obelisk:log/log;
+}
