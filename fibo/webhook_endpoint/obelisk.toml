@@ -13,7 +13,7 @@ location.oci = "docker.io/getobelisk/example_workflow_fibo_template:latest@sha25
 name = "external"
 listening_addr = "0.0.0.0:9000"
 
-[[webhook_wasm]]
+[[webhook_endpoint]]
 name = "{{crate_name}}"
 location.path = "target/wasm32-wasip2/release/{{crate_name}}.wasm"
 http_server = "external"

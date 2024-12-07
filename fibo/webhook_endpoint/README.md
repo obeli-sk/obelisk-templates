@@ -20,7 +20,7 @@ If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkg
 ### Generate the Template
 Run the following command to create a new project based on this template:
 ```sh
-cargo-generate generate obeli-sk/obelisk-templates fibo/webhook --name fibo_webhook
+cargo-generate generate obeli-sk/obelisk-templates fibo/webhook_endpoint --name fibo_webhook_endpoint
 ```
 
 ### Build the Webhook Endpoint
