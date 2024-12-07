@@ -1,0 +1,43 @@
+package obelisk:types;
+
+interface time {
+
+    variant duration {
+        milliseconds(u64),
+        seconds(u64),
+        minutes(u32),
+        hours(u32),
+        days(u32),
+    }
+
+    /// A time and date in seconds plus nanoseconds.
+    // Extracted from wasi:clocks@0.2.0 to avoid dependency on wasi:io
+    record datetime {
+        seconds: u64,
+        nanoseconds: u32,
+    }
+
+    variant schedule-at {
+        now,
+        at(datetime),
+        in(duration),
+    }
+}
+
+interface execution {
+    resource join-set-id {
+    }
+    record execution-id {
+        id: string,
+    }
+
+    record delay-id {
+        id: string,
+    }
+
+    variant execution-error {
+        permanent-failure(string), // trap, instantiation error, non determinism, unhandled child execution error, param/result parsing error
+        permanent-timeout,
+        nondeterminism,
+    }
+}

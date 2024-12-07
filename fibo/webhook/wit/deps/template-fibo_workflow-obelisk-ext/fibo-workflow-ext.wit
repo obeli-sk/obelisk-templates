@@ -1,0 +1,8 @@
+package template-fibo:workflow-obelisk-ext;
+
+interface fibo-workflow-ifc {
+    use obelisk:types/execution.{execution-id, join-set-id, execution-error};
+    use obelisk:types/time.{schedule-at};
+
+    fiboa-schedule: func(schedule-at: schedule-at, n: u8, iterations: u32) -> execution-id;
+}

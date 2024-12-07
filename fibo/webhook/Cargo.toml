@@ -8,6 +8,8 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
+waki = "0.5.0"
+waki-macros = "0.5.0"
 wit-bindgen = "0.36.0"
 
 [profile.release]
