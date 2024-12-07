@@ -90,5 +90,23 @@ Execution took 1.567253252s.
 ```
 
 ## Next steps
-* Run the `fiboa-concurrent` workflow.
-* Try restarting the server in the middle of a workflow, observe the event log in the web UI.
+
+### Push the WASM Component to an OCI Registry
+If you have an account on [Docker Hub](https://hub.docker.com), [GitHub Container Registry](https://github.com/container-registry/)
+or other OCI Registry, you can push the WASM:
+```sh
+obelisk client component push --convert-core-module \
+ "target/wasm32-wasip2/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>
+```
+Note: Since the built artefact is not a WASM Component, `--convert-core-module` must be passed.
+You can then update the `obelisk.toml` - replace `location.path` with `location.oci = "docker.io/<your account>/<your repo>:<tag>@sha256:<digest>"`.
+
+### Run the concurrent version
+Run the `fiboa-concurrent` workflow, compare the implementation and execution duration.
+
+### Simulate a server crash
+Try restarting the server in the middle of a workflow, observe the event log in the web UI.
+
+### Create a webhook that calls this workflow
+Create a webhook that uses this activity. See the [fibo/webhook](../webhook) template.
+
