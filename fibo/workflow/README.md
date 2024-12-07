@@ -107,5 +107,5 @@ Run the `fiboa-concurrent` workflow, compare the implementation and execution du
 ### Simulate a server crash
 Try restarting the server in the middle of a workflow, observe the event log in the web UI.
 
-### Create a webhook that calls this workflow
-Create a webhook that uses this activity. See the [fibo/webhook](../webhook) template.
+### Create a webhook endpoint that calls this workflow
+Create a webhook endpoint that uses this activity. See the [fibo/webhook](../webhook) template.

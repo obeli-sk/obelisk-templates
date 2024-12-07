@@ -1,6 +1,6 @@
-# Rust-Based Fibonacci Webhook Template for Obelisk
+# Rust-Based Fibonacci Webhook Endpoint Template for Obelisk
 
-This template provides a basic example of a Rust-based webhook.
+This template provides a basic example of a Rust-based webhook endpoint.
 
 The contract is defined in the [wit](./wit/) folder.
 
@@ -23,7 +23,7 @@ Run the following command to create a new project based on this template:
 cargo-generate generate obeli-sk/obelisk-templates fibo/webhook --name fibo_webhook
 ```
 
-### Build the Webhook
+### Build the Webhook Endpoint
 Navigate into the generated folder.
 If you're using **Nix** and **direnv**, you can set up the environment using the provided [.envrc-example](./.envrc-example):
 ```sh
@@ -32,7 +32,7 @@ git add .
 direnv allow
 ```
 
-Build the webhook in release mode:
+Build the webhook endpoint in release mode:
 ```sh
 cargo build --release
 ```
@@ -48,9 +48,9 @@ obelisk server run
 Note: If running in a folder that does not contain `obelisk.toml` you must specify the path:
 `obelisk server run --config <path to obelisk.toml>`.
 
-### Test the Webhook
+### Test the Webhook Endpoint
 
-### Run the webhook using curl
+### Call the endpoint using curl
 Return a hardcoded response:
 ```sh
 curl localhost:9000/fibo/1/1
