@@ -1,0 +1,22 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+anyhow = "1.0"
+chrono = { version = "0.4.38", features = ["serde"] }
+cynic = "3.9.1"
+serde_json = "1.0.133"
+waki = { version = "0.4.2", features = ["json"] }
+wit-bindgen = "0.36.0"
+
+[build-dependencies]
+cynic-codegen = "3.9.1"
+
+[profile.release]
+opt-level = "s"

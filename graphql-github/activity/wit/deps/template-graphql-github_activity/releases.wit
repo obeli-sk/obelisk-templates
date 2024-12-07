@@ -1,0 +1,12 @@
+package template-graphql-github:activity;
+
+interface graphql-github {
+
+    record release {
+        tag-name: string,
+        name: option<string>,
+        is-latest: bool,
+    }
+
+    releases: func(owner: string, repo: string) -> result<list<release>, string>;
+}

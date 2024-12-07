@@ -1,0 +1,6 @@
+package any:any;
+
+world any {
+    export template-graphql-github:activity/graphql-github;
+    import obelisk:log/log;
+}
