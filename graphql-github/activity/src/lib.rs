@@ -72,6 +72,8 @@ fn build_query<'a>(
     Releases::build(ReleasesArguments { owner, repo })
 }
 
+// This part is generated using `cynic-querygen`
+
 #[derive(cynic::QueryVariables, Debug)]
 pub struct ReleasesArguments<'a> {
     pub owner: &'a str,

@@ -6,8 +6,6 @@ use waki::{handler, ErrorCode, Request, Response};
 use wit_bindgen::generate;
 
 generate!({ generate_all });
-#[allow(dead_code)]
-struct Component;
 
 #[handler]
 fn handle(_req: Request) -> Result<Response, ErrorCode> {
