@@ -24,7 +24,7 @@ If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkg
 ### Generate the Template
 Run the following command to create a new project based on this template:
 ```sh
-cargo-generate generate obeli-sk/obelisk-templates fibo/workflow --name workflow_myfibo
+cargo-generate generate obeli-sk/obelisk-templates fibo/workflow --name fibo_workflow
 ```
 
 ### Build the Workflow
@@ -42,7 +42,7 @@ cargo build --release
 ```
 
 Note: Since the build target is set to `wasm32-unknown-unknown` in [.cargo/config.toml](.cargo/config.toml)
-the WASM artifact is a Core WASM Module, not a WASM Component. Obelisk converts it to a component automatically during 
+the WASM artifact is a Core WASM Module, not a WASM Component. Obelisk converts it to a component automatically during
 server startup.
 
 ### Run the Server
@@ -64,7 +64,7 @@ obelisk client component list
 ```
 Example output:
 ```
-workflow_myfibo workflow:workflow_myfibo:47f4f4c0f9ff2e68
+fibo_workflow workflow:fibo_workflow:47f4f4c0f9ff2e68
 Exports:
         template-fibo:workflow/fibo-workflow-ifc.fiboa : func(n: u8, iterations: u32) -> u64
         template-fibo:workflow/fibo-workflow-ifc.fiboa-concurrent : func(n: u8, iterations: u32) -> u64
@@ -109,4 +109,3 @@ Try restarting the server in the middle of a workflow, observe the event log in 
 
 ### Create a webhook that calls this workflow
 Create a webhook that uses this activity. See the [fibo/webhook](../webhook) template.
-

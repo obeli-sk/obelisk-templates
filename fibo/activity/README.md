@@ -22,7 +22,7 @@ If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkg
 ### Generate the Template
 Run the following command to create a new project based on this template:
 ```sh
-cargo-generate generate obeli-sk/obelisk-templates fibo/activity --name activity_myfibo
+cargo-generate generate obeli-sk/obelisk-templates fibo/activity --name fibo_activity
 ```
 
 ### Build the Activity
@@ -47,7 +47,7 @@ Start the server:
 ```sh
 obelisk server run
 ```
-Note: If running in a folder that does not contain `obelisk.toml` you must specify the path:  
+Note: If running in a folder that does not contain `obelisk.toml` you must specify the path:
 `obelisk server run --config <path to obelisk.toml>`.
 
 ### Test the Activity
@@ -61,7 +61,7 @@ obelisk client component list
 ```
 Example output:
 ```
-activity_myfibo activity_wasm:activity_myfibo:1206b2d6709ed18d
+fibo_activity activity_wasm:fibo_activity:1206b2d6709ed18d
 Exports:
         template-fibo:activity/fibo-activity-ifc.fibo : func(n: u8) -> u64
 ```
