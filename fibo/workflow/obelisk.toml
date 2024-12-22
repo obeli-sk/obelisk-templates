@@ -1,6 +1,9 @@
 api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
 webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
 
+[log.stdout]
+enabled = true
+
 [[activity_wasm]]
 name = "activity_myfibo"
 # location.path = "../activity-myfibo/target/wasm32-wasip2/release/activity_myfibo.wasm"

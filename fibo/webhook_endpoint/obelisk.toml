@@ -1,6 +1,9 @@
 api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
 webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
 
+[log.stdout]
+enabled = true
+
 [[activity_wasm]]
 name = "activity_myfibo"
 location.oci = "docker.io/getobelisk/example_activity_fibo_template:latest@sha256:bd2899c29ee1664db03a68dd17cc59a56e041abd58ef7dc9cc31a6e05c90606b"
