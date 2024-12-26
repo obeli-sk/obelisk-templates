@@ -1,6 +1,6 @@
-# Rust-Based HTTP Client Activity Template for Obelisk
+# Rust-Based GitHub Activity Template for Obelisk
 
-This template provides a basic implementation of a HTTP client
+This template provides a basic implementation of a GraphQL client
 as a Rust-based activity.
 
 The contract is defined in the [wit](./wit/) folder.
@@ -15,6 +15,13 @@ Ensure you have the following installed before using the template:
 * **[obelisk](https://github.com/obeli-sk/obelisk):** Install with `cargo install --locked obelisk`.
 
 If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkgs#cargo-generate`.
+
+## Access Token
+Generate a GitHub access token (classic) [here](https://github.com/settings/tokens/new).
+No scopes need to be selected. Export the token as an environment variable:
+```sh
+export GITHUB_TOKEN="..."
+```
 
 ## Getting Started
 
