@@ -29,6 +29,7 @@
               pkg-config
               rustToolchain
               wasm-tools
+              wasmtime
             ];
           };
         }
