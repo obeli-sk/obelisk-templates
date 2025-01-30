@@ -8,5 +8,5 @@ world any {
     // Needed for `fiboa-concurrent`, calls the activity using a join set:
     import template-fibo:activity-obelisk-ext/fibo-activity-ifc;
     import obelisk:types/execution;
-    import obelisk:workflow/host-activities;
+    import obelisk:workflow/workflow-support;
 }

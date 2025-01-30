@@ -1,5 +1,5 @@
 use exports::template_fibo::workflow::fibo_workflow_ifc::Guest;
-use obelisk::workflow::host_activities::new_join_set;
+use obelisk::workflow::workflow_support::new_join_set;
 use template_fibo::{
     activity::fibo_activity_ifc::fibo as fibo_activity,
     activity_obelisk_ext::fibo_activity_ifc::{fibo_await_next, fibo_submit},

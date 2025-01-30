@@ -7,7 +7,7 @@ enabled = true
 [[activity_wasm]]
 name = "activity_myfibo"
 # location.path = "../activity-myfibo/target/wasm32-wasip2/release/activity_myfibo.wasm"
-location.oci = "docker.io/getobelisk/example_activity_fibo_template:latest@sha256:bd2899c29ee1664db03a68dd17cc59a56e041abd58ef7dc9cc31a6e05c90606b"
+location.oci = "docker.io/getobelisk/example_activity_fibo_template:2025-01-30@sha256:f67904dd6d30bc4ca9bf844d41b6c11b146ebf66adaf05a2088e2a5f7fa46d29"
 
 [[workflow]]
 name = "{{crate_name}}"

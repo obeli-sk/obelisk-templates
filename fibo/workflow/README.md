@@ -80,13 +80,12 @@ obelisk client execution submit --follow \
 ```
 Example output:
 ```
-E_01JE1FBX0FBJCRCZDNZWP0BKYC
+E_01JJVA6PBM4VVQAENT3CZCZMH3
 Function: template-fibo:workflow/fibo-workflow-ifc.fiboa
 BlockedByJoinSet
-Pending
-BlockedByJoinSet
 Execution finished: OK: 55
-Execution took 1.567253252s.
+
+Execution took 989.281526ms.
 ```
 
 ## Next steps
