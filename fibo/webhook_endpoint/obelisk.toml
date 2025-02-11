@@ -10,7 +10,7 @@ location.oci = "docker.io/getobelisk/example_activity_fibo_template:2025-01-30@s
 
 [[workflow]]
 name = "workflow_myfibo"
-location.oci = "docker.io/getobelisk/example_workflow_fibo_template:2025-01-30@sha256:0da437c2849b77b7b0351f3d6d379621b2e4c3dadb432b5c01d0e6447402b85e"
+location.oci = "docker.io/getobelisk/example_workflow_fibo_template:2025-02-11@sha256:9b18b82adc7706f0d0720261b5d5a3a5bc59cc31fa4ecb72dddf016bde1da10d"
 
 [[http_server]]
 name = "external"
@@ -21,5 +21,5 @@ name = "{{crate_name}}"
 location.path = "target/wasm32-wasip2/release/{{crate_name}}.wasm"
 http_server = "external"
 routes = [{ methods = ["GET"], route = "/fibo/:N/:ITERATIONS" }]
-forward_stdout = "stderr"                                        # forwards stdout to host's stderr
-forward_stderr = "stderr"                                        # forwards stderr to host's stderr
+forward_stdout = "stderr"                                          # forwards stdout to host's stderr
+forward_stderr = "stderr"                                          # forwards stderr to host's stderr
