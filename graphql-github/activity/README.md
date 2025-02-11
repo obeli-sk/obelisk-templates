@@ -20,7 +20,7 @@ If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkg
 Generate a GitHub access token (classic) [here](https://github.com/settings/tokens/new).
 No scopes need to be selected. Export the token as an environment variable:
 ```sh
-export GITHUB_TOKEN="..."
+export GITHUB_TOKEN="$(gh auth token)"
 ```
 
 ## Getting Started
