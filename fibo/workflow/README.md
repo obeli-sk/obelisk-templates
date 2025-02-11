@@ -76,16 +76,16 @@ Submit an execution request to compute Fibonacci(10). The workflow requests to
 run the `fibo` activity 1000 times:
 ```sh
 obelisk client execution submit --follow \
- template-fibo:workflow/fibo-workflow-ifc.fiboa [10,1000]
+ template-fibo:workflow/fibo-workflow-ifc.fiboa [10,800]
 ```
 Example output:
 ```
-E_01JJVA6PBM4VVQAENT3CZCZMH3
+E_01JKT01NAQKAFJFXXANMRMAD3Y
 Function: template-fibo:workflow/fibo-workflow-ifc.fiboa
 BlockedByJoinSet
 Execution finished: OK: 55
 
-Execution took 989.281526ms.
+Execution took 983.942488ms.
 ```
 
 ## Next steps
