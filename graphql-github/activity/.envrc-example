@@ -1,2 +1,6 @@
 use flake .
 watch_file ./rust-toolchain.toml ./flake.nix
+
+export GITHUB_TOKEN="..."
+export TEST_OWNER="obeli-sk"
+export TEST_REPO="obelisk"

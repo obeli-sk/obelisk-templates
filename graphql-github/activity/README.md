@@ -48,6 +48,14 @@ cargo build --release
 Note: The built WASM Component "target/wasm32-wasip2/release/{{crate_name}}.wasm" is
 already part of the provided [obelisk.toml](./obelisk.toml) configuration file.
 
+To run the integration test, run
+```sh
+GITHUB_TOKEN="$(gh auth token)" \
+TEST_OWNER="obeli-sk" \
+TEST_REPO="obelisk" \
+cargo test -- --ignored --nocapture
+```
+
 ### Run the Server
 Start the server:
 ```sh
@@ -83,7 +91,7 @@ Example output:
 E_01JEGW8QWWQW0EWEP9M2EH2C5K
 Function: template-graphql-github:activity/graphql-github.releases
 Locked
-Execution finished: OK: {"ok":[{"is-latest":true,"name":"obelisk-v0.8.0","tag-name":"v0.8.0"},{"is-latest":false,"name":"obelisk-v0.7.0","tag-name":"v0.7.0"},{"is-latest":false,"name":"obelisk-v0.6.1","tag-name":"v0.6.1"},{"is-latest":false,"name":"obelisk-v0.6.0","tag-name":"v0.6.0"},{"is-latest":false,"name":"obeli-sk-v0.5.0","tag-name":"v0.5.0"},{"is-latest":false,"name":"obeli-sk-v0.4.0","tag-name":"v0.4.0"},{"is-latest":false,"name":"obeli-sk-v0.3.0","tag-name":"v0.3.0"},{"is-latest":false,"name":"obeli-sk-v0.2.2","tag-name":"v0.2.2"},{"is-latest":false,"name":"obeli-sk-v0.2.1","tag-name":"v0.2.1"},{"is-latest":false,"name":"obeli-sk-v0.2.0","tag-name":"v0.2.0"}]}
+Execution finished: OK: {"ok":[{"tag-name":"v0.15.0","name":"obelisk-v0.15.0","is-latest":true},{"tag-name":"v0.14.2","name":"obelisk-v0.14.2","is-latest":false},{"tag-name":"v0.14.1","name":"obelisk-v0.14.1","is-latest":false},{"tag-name":"v0.14.0","name":"obelisk-v0.14.0","is-latest":false},{"tag-name":"v0.13.3","name":"obelisk-v0.13.3","is-latest":false},{"tag-name":"v0.13.2","name":"obelisk-v0.13.2","is-latest":false},{"tag-name":"v0.13.1","name":"obelisk-v0.13.1","is-latest":false},{"tag-name":"v0.13.0","name":"obelisk-v0.13.0","is-latest":false},{"tag-name":"v0.12.0","name":"obelisk-v0.12.0","is-latest":false},{"tag-name":"v0.11.0","name":"obelisk-v0.11.0","is-latest":false}]}
 Execution took 514.601423ms.
 ```
 

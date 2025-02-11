@@ -43,29 +43,25 @@ jobs:
       - name: test-activity-graphql-github.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TEST_OWNER: "obeli-sk"
+          TEST_REPO: "obelisk"
         run: |
           nix develop --command ./scripts/test-activity-graphql-github.sh
 
       - name: test-activity-http-simple.sh
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TEST_URL: "https://api.ipify.org"
         run: |
           nix develop --command ./scripts/test-activity-http-simple.sh
 
       - name: test-fibo-activity.sh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           nix develop --command ./scripts/test-fibo-activity.sh
 
       - name: test-fibo-webhook.sh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           nix develop --command ./scripts/test-fibo-webhook.sh
 
       - name: test-fibo-workflow.sh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           nix develop --command ./scripts/test-fibo-workflow.sh

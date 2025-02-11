@@ -26,7 +26,7 @@ mod tests {
     #[test]
     fn integration_test() {
         let url = std::env::var("TEST_URL").expect("TEST_URL must be set");
-        let res = Component::get(url);
-        println!("result: {res:?}");
+        let body = Component::get(url).unwrap();
+        println!("body: {body}");
     }
 }

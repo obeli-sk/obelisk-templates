@@ -1,7 +1,6 @@
 use crate::exports::template_graphql_github::activity::graphql_github::Guest;
 use cynic::GraphQlResponse;
 use exports::template_graphql_github::activity::graphql_github;
-use obelisk::log::log::info;
 use waki::Client;
 use wit_bindgen::generate;
 
@@ -42,10 +41,7 @@ impl Guest for Component {
                 .flatten()
                 .map(graphql_github::Release::from)
                 .collect();
-            info(&format!(
-                "Got {} releases for {owner}/{repo}",
-                releases.len()
-            ));
+            println!("Got {} releases for {owner}/{repo}", releases.len());
             Ok(releases)
         } else {
             return Err("data part is missing".to_string());
@@ -103,4 +99,19 @@ pub struct Release {
     pub is_latest: bool,
     pub name: Option<String>,
     pub tag_name: String,
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::exports::template_graphql_github::activity::graphql_github::Guest as _;
+    use crate::Component;
+
+    #[ignore]
+    #[test]
+    fn integration_test() {
+        let owner = std::env::var("TEST_OWNER").expect("TEST_OWNER must be set");
+        let repo = std::env::var("TEST_REPO").expect("TEST_REPO must be set");
+        let releases = Component::releases(owner, repo).unwrap();
+        println!("releases: {releases:?}");
+    }
 }

@@ -1,2 +1,4 @@
 use flake .
 watch_file ./rust-toolchain.toml ./flake.nix
+
+export TEST_URL="https://api.ipify.org"
