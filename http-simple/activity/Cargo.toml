@@ -1,7 +1,7 @@
 [package]
-name = "http-simple-activity"
+name = "{{project-name}}"
 version = "0.1.0"
-authors = ["Tomas Olvecky <tomas.olvecky@gmail.com>"]
+authors = ["{{authors}}"]
 edition = "2021"
 
 [lib]
