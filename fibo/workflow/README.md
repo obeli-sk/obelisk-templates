@@ -94,10 +94,9 @@ Execution took 983.942488ms.
 If you have an account on [Docker Hub](https://hub.docker.com), [GitHub Container Registry](https://github.com/container-registry/)
 or other OCI Registry, you can push the WASM:
 ```sh
-obelisk client component push --convert-core-module \
- "target/wasm32-wasip2/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>
+obelisk client component push \
+ "target/wasm32-unknown-unknown/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>
 ```
-Note: Since the built artefact is not a WASM Component, `--convert-core-module` must be passed.
 You can then update the `obelisk.toml` - replace `location.path` with `location.oci = "docker.io/<your account>/<your repo>:<tag>@sha256:<digest>"`.
 
 ### Run the concurrent version
