@@ -20,6 +20,26 @@ defaults:
     shell: bash -xe {0}
 
 jobs:
+  check-dev-deps:
+    name: Check dev-deps.txt
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: nixbuild/nix-quick-install-action@v30
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Populate the nix store
+        run: nix develop --command echo
+      - run: nix develop --command ./scripts/dev-deps.sh
+      - run: |
+          if git diff --quiet; then
+              echo "No changes"
+          else
+              echo "Changes detected:"
+              git diff
+              exit 1
+          fi
+
   check-e2e:
     runs-on: ubuntu-24.04
     steps:
