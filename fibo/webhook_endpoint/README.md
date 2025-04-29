@@ -53,7 +53,7 @@ Note: If running in a folder that does not contain `obelisk.toml` you must speci
 ### Call the endpoint using curl
 Return a hardcoded response:
 ```sh
-curl localhost:9000/fibo/1/1
+curl --fail localhost:9000/fibo/1/1
 ```
 The output should look like this:
 ```
