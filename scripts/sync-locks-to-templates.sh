@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
-# Copies `flake.lock` and `rust-toolchain.toml` from latest obelisk to this repository and all of its templates.
+# Copies `flake.lock` and `rust-toolchain.toml` from the root of this repository to all of its templates.
 
 set -exuo pipefail
 cd "$(dirname "$0")/.."
-
-curl https://raw.githubusercontent.com/obeli-sk/obelisk/refs/heads/latest/flake.lock -o flake.lock
-curl https://raw.githubusercontent.com/obeli-sk/obelisk/refs/heads/latest/rust-toolchain.toml -o rust-toolchain.toml
 
 declare -a target_dirs=(
   "./graphql-github/activity/"

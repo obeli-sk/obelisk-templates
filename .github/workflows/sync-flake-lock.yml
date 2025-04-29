@@ -25,7 +25,8 @@ jobs:
 
       - name: Sync flake.lock and rust-toolchain.toml from upstream
         run: |
-          scripts/sync-from-obelisk-latest.sh
+          curl https://raw.githubusercontent.com/obeli-sk/obelisk/refs/heads/latest/flake.lock -o flake.lock
+          curl https://raw.githubusercontent.com/obeli-sk/obelisk/refs/heads/latest/rust-toolchain.toml -o rust-toolchain.toml
 
       - name: Populate the nix store without Obelisk # Workaround for slow garnix cache
         run: |
@@ -36,9 +37,11 @@ jobs:
           echo "extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g" >> ~/.config/nix/nix.conf
           nix develop --command echo
 
-      - name: Update dev-deps.txt
+      - name: Update dev-deps.txt, template folders
         run: |
           nix develop . --command ./scripts/dev-deps.sh
+          # At this point `flake.lock` contains the latest obelisk revision.
+          scripts/sync-locks-to-templates.sh
 
       - name: Generate Unique Branch Name
         id: branch-name
