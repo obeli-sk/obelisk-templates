@@ -2,9 +2,9 @@
 package template-fibo:workflow-obelisk-ext;
 
 interface fibo-workflow-ifc {
-    use obelisk:types/execution@1.0.0.{execution-id, join-set-id};
-    use obelisk:types/time@1.0.0.{schedule-at};
-    use obelisk:types/execution@1.0.0.{execution-error};
+    use obelisk:types/execution@1.1.0.{execution-id, join-set-id};
+    use obelisk:types/time@1.1.0.{schedule-at};
+    use obelisk:types/execution@1.1.0.{execution-error};
 
     fiboa-submit: func(join-set-id: borrow<join-set-id>, n: u8, iterations: u32) -> execution-id;
 
