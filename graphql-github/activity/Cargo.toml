@@ -10,13 +10,13 @@ crate-type = ["cdylib"]
 [dependencies]
 anyhow = "1.0"
 chrono = { version = "0.4.41", features = ["serde"] }
-cynic = "3.10.0"
+cynic = "3.11.0"
 serde_json = "1.0.140"
 waki = { version = "0.5.1", features = ["json"] }
-wit-bindgen = "0.41.0"
+wit-bindgen = "0.42.1"
 
 [build-dependencies]
-cynic-codegen = "3.10.0"
+cynic-codegen = "3.11.0"
 
 [profile.release]
 opt-level = "s"
