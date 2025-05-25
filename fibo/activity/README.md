@@ -61,7 +61,7 @@ obelisk client component list
 ```
 Example output:
 ```
-fibo_activity activity_wasm:fibo_activity:1206b2d6709ed18d
+fibo_activity      activity_wasm:fibo_activity
 Exports:
         template-fibo:activity/fibo-activity-ifc.fibo : func(n: u8) -> u64
 ```

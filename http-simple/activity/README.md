@@ -63,7 +63,7 @@ obelisk client component list
 ```
 Example output:
 ```
-myhttp_activity activity_wasm:myhttp_activity:b1c17fb7e2a2982d
+myhttp_activity activity_wasm:myhttp_activity
 Exports:
         template-http:activity/http-get.get : func(url: string) -> result<string, string>
 ```

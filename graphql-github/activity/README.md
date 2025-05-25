@@ -75,7 +75,7 @@ obelisk client component list
 ```
 Example output:
 ```
-mygithub_activity       activity_wasm:mygithub_activity:c5347254caf2f8b1
+mygithub_activity       activity_wasm:mygithub_activity
 Exports:
         template-graphql-github:activity/graphql-github.releases : func(owner: string, repo: string) -> result<list<release>, string>
 ```

@@ -64,11 +64,14 @@ obelisk client component list
 ```
 Example output:
 ```
-fibo_workflow workflow:fibo_workflow:47f4f4c0f9ff2e68
+activity_myfibo activity_wasm:activity_myfibo
+Exports:
+        template-fibo:activity/fibo-activity-ifc.fibo : func(n: u8) -> u64
+
+fibo_workflow      workflow:fibo_workflow
 Exports:
         template-fibo:workflow/fibo-workflow-ifc.fiboa : func(n: u8, iterations: u32) -> u64
         template-fibo:workflow/fibo-workflow-ifc.fiboa-concurrent : func(n: u8, iterations: u32) -> u64
-...
 ```
 
 ### Run the fiboa workflow
