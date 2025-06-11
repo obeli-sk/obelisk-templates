@@ -4,11 +4,9 @@ set -exuo pipefail
 
 source "$(dirname "$0")/test-harness.sh"
 
-TEST_URL="${TEST_URL:?TEST_URL is not set}"
-
 TEMPLATE="activity-rs/http-simple-async"
 CRATE_NAME="myhttp_activity"
-TEST='obelisk client execution submit --follow template-http:activity/http-get.get-plain ["https://api.ipify.org"]'
+TEST='just test_url=http://localhost:8080 submit'
 run_test
 
-cargo test -- --ignored --nocapture
+TEST_URL="http://localhost:8080" cargo test -- --ignored --nocapture

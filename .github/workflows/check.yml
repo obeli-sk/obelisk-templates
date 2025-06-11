@@ -79,14 +79,10 @@ jobs:
           nix develop --command ./scripts/test-activity-graphql-github.sh
 
       - name: test-activity-http-simple-sync.sh
-        env:
-          TEST_URL: "https://api.ipify.org"
         run: |
           nix develop --command ./scripts/test-activity-rs-http-simple-sync.sh
 
       - name: test-activity-http-simple-async.sh
-        env:
-          TEST_URL: "https://api.ipify.org"
         run: |
           nix develop --command ./scripts/test-activity-rs-http-simple-async.sh
 
