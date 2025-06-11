@@ -82,7 +82,7 @@ jobs:
         env:
           TEST_URL: "https://api.ipify.org"
         run: |
-          nix develop --command ./scripts/test-activity-http-simple.sh
+          nix develop --command ./scripts/test-activity-rs-http-simple-sync.sh
 
       - name: test-fibo-activity.sh
         run: |

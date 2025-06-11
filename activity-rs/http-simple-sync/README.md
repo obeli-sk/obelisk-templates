@@ -21,7 +21,7 @@ If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkg
 ### Generate the Template
 Run the following command to create a new project based on this template:
 ```sh
-cargo-generate generate obeli-sk/obelisk-templates http-simple/activity --name myhttp_activity
+cargo-generate generate obeli-sk/obelisk-templates activity-rs/http-sync --name myhttp_activity
 ```
 
 ### Build the Activity
