@@ -56,18 +56,6 @@ just serve
 Access the activity via the web interface at [127.0.0.1:8080](http://127.0.0.1:8080),
 or use the CLI as described in the next sections.
 
-### List Available Functions
-To see the available exported functions, run:
-```sh
-obelisk client component list
-```
-Example output:
-```
-myhttp_activity activity_wasm:myhttp_activity
-Exports:
-        template-http:activity/http-get.get : func(url: string) -> result<string, string>
-```
-
 ### Run the http activity
 Submit an execution request to issue a GET request:
 ```sh
@@ -93,4 +81,4 @@ obelisk client component push "target/wasm32-wasip2/release/{{crate_name}}.wasm"
 You can then update the `obelisk.toml` - replace `location.path` with `location.oci = "docker.io/<your account>/<your repo>:<tag>@sha256:<digest>"`.
 
 ### Add error handling
-Fail the activity on non successful status codes.
+Fail the activity on non-successful status codes.
