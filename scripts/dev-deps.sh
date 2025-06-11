@@ -10,6 +10,7 @@ rm -f dev-deps.txt
 # cargo-edit
 cargo-upgrade upgrade --version >> dev-deps.txt
 cargo-generate --version >> dev-deps.txt
+just --version >> dev-deps.txt
 obelisk --version >> dev-deps.txt
 echo "pkg-config $(pkg-config --version)" >> dev-deps.txt
 rustc --version >> dev-deps.txt

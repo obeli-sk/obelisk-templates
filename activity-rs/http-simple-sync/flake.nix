@@ -33,6 +33,7 @@
               cargo-binstall
               cargo-edit
               cargo-expand
+              just
               obelisk.packages.${system}.default
               pkg-config
               rustToolchain

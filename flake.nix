@@ -30,6 +30,7 @@
             cargo-edit
             cargo-generate
             curlMinimal
+            just
             nixpkgs-fmt
             pkg-config
             rustToolchain

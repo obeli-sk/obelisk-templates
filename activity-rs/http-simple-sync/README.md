@@ -21,7 +21,7 @@ If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkg
 ### Generate the Template
 Run the following command to create a new project based on this template:
 ```sh
-cargo-generate generate obeli-sk/obelisk-templates activity-rs/http-sync --name myhttp_activity
+cargo-generate generate obeli-sk/obelisk-templates activity-rs/http-simple-sync --name myhttp_activity
 ```
 
 ### Build the Activity
@@ -35,7 +35,7 @@ direnv allow
 
 Build the activity in release mode:
 ```sh
-cargo build --release
+just build
 ```
 
 Note: The built WASM Component "target/wasm32-wasip2/release/{{crate_name}}.wasm" is
@@ -43,13 +43,13 @@ already part of the provided [obelisk.toml](./obelisk.toml) configuration file.
 
 To run the integration test, run
 ```sh
-TEST_URL="https://api.ipify.org" cargo test -- --ignored --nocapture
+just test
 ```
 
 ### Run the Obelisk server
 Start the server:
 ```sh
-obelisk server run --config ./obelisk.toml
+just serve
 ```
 
 ### Test the Activity in Obelisk
@@ -71,8 +71,7 @@ Exports:
 ### Run the http activity
 Submit an execution request to issue a GET request:
 ```sh
-obelisk client execution submit --follow \
- template-http:activity/http-get.get '["https://api.ipify.org"]'
+just submit
 ```
 Example output:
 ```
