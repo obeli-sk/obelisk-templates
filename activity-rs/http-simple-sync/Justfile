@@ -4,11 +4,11 @@ build:
 	cargo build --release
 
 test:
-	TEST_URL="{{test_url}}" cargo test -- --ignored --nocapture
+	TEST_URL="{{ "test_url" | prepend: "{{" | append: "}}" }}" cargo test -- --ignored --nocapture
 
 serve:
 	obelisk server run
 
 submit:
-	obelisk client execution submit --follow template-http:activity/http-get.get '["{{test_url}}"]'
+	obelisk client execution submit --follow template-http:activity/http-get.get '["{{ "test_url" | prepend: "{{" | append: "}}" }}"]'
 	
