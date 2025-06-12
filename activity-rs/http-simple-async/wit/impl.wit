@@ -2,4 +2,5 @@ package any:any;
 
 world any {
     export template-http:activity/http-get;
+    export template-http:activity/http-post;
 }

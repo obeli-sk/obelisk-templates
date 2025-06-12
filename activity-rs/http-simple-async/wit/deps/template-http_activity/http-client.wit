@@ -1,0 +1,15 @@
+package template-http:activity;
+
+interface http-get {
+
+    // Submit example: obelisk client execution submit --follow template-http:activity/http-get.get-plain '["https://api.ipify.org"]'
+    get-plain: func(url: string) -> result<string, string>;
+
+    // Submit example: obelisk client execution submit -f template-http:activity/http-get.get-json '["https://api.ipify.org?format=json"]'
+    get-json: func(url: string) -> result<string, string>;
+}
+
+interface http-post {
+    // Submit example: obelisk client execution submit -f template-http:activity/http-post.post '["https://httpbin.org/post", "text-plain", "test"]'
+    post: func(url: string, content-type: string, body: string) -> result<string, string>;
+}
