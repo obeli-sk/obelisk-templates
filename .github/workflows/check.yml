@@ -76,7 +76,7 @@ jobs:
           TEST_OWNER: "obeli-sk"
           TEST_REPO: "obelisk"
         run: |
-          nix develop --command ./scripts/test-activity-graphql-github.sh
+          nix develop --command ./scripts/test-activity-rs-graphql-sync.sh
 
       - name: test-activity-http-simple-sync.sh
         run: |
