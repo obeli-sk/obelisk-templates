@@ -9,8 +9,9 @@ projects=(
   "fibo/activity"
   "fibo/webhook_endpoint"
   "fibo/workflow"
-  "graphql-github/activity"
-  "http-simple/activity"
+  "activity-rs/graphql-sync/"
+  "activity-rs/http-simple-sync/"
+  "activity-rs/http-simple-async/"
 )
 
 for dir in "${projects[@]}"; do
