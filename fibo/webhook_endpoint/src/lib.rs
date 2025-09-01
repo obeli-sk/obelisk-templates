@@ -1,7 +1,7 @@
 use crate::obelisk::log::log::info;
 use crate::obelisk::types::time::ScheduleAt;
 use crate::template_fibo::workflow::fibo_workflow_ifc as workflow;
-use crate::template_fibo::workflow_obelisk_ext::fibo_workflow_ifc as workflow_ext;
+use crate::template_fibo::workflow_obelisk_schedule::fibo_workflow_ifc as workflow_schedule;
 use waki::{handler, ErrorCode, Request, Response};
 use wit_bindgen::generate;
 
@@ -21,7 +21,7 @@ fn handle(_req: Request) -> Result<Response, ErrorCode> {
 
     let fibo_res = if n >= 10 {
         println!("scheduling");
-        let execution_id = workflow_ext::fiboa_schedule(ScheduleAt::Now, n, iterations);
+        let execution_id = workflow_schedule::fiboa_schedule(ScheduleAt::Now, n, iterations);
         format!("scheduled: {}", execution_id.id)
     } else if n > 1 {
         // Call the execution directly.

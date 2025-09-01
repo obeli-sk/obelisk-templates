@@ -2,6 +2,6 @@ package any:any;
 
 world any {
     import template-fibo:workflow/fibo-workflow-ifc;
-    import template-fibo:workflow-obelisk-ext/fibo-workflow-ifc;
+    import template-fibo:workflow-obelisk-schedule/fibo-workflow-ifc;
     import obelisk:log/log@1.0.0;
 }
