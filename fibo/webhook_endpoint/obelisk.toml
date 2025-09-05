@@ -18,7 +18,7 @@ listening_addr = "0.0.0.0:9000"
 
 [[webhook_endpoint]]
 name = "{{crate_name}}"
-location.path = "target/wasm32-wasip2/release/{{crate_name}}.wasm"
+location.path = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
 http_server = "external"
 routes = [{ methods = ["GET"], route = "/fibo/:N/:ITERATIONS" }]
 forward_stdout = "stderr"                                          # forwards stdout to host's stderr

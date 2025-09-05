@@ -6,7 +6,7 @@ enabled = true
 
 [[activity_wasm]]
 name = "{{crate_name}}"
-location.path = "target/wasm32-wasip2/release/{{crate_name}}.wasm"
+location.path = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
 env_vars = ["GITHUB_TOKEN"]                                  # Must be set as an environment variable when running the server.
 forward_stdout = "stderr"                                    # Forwards stdout to host's stderr.
 forward_stderr = "stderr"                                    # Forwards stderr to host's stderr.

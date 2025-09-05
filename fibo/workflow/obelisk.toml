@@ -6,10 +6,9 @@ enabled = true
 
 [[activity_wasm]]
 name = "activity_myfibo"
-# location.path = "../activity-myfibo/target/wasm32-wasip2/release/activity_myfibo.wasm"
 location.oci = "docker.io/getobelisk/example_activity_fibo_template:2025-01-30@sha256:f67904dd6d30bc4ca9bf844d41b6c11b146ebf66adaf05a2088e2a5f7fa46d29"
 
 [[workflow]]
 name = "{{crate_name}}"
-location.path = "target/wasm32-unknown-unknown/release/{{crate_name}}.wasm"
+location.path = "${OBELISK_TOML_DIR}/target/wasm32-unknown-unknown/release/{{crate_name}}.wasm"
 backtrace.sources = {"${OBELISK_TOML_DIR}/src/lib.rs" = "${OBELISK_TOML_DIR}/src/lib.rs"}

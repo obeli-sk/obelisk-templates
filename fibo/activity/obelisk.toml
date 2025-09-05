@@ -6,5 +6,5 @@ enabled = true
 
 [[activity_wasm]]
 name = "{{crate_name}}"
-location.path = "target/wasm32-wasip2/release/{{crate_name}}.wasm"
+location.path = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
 
