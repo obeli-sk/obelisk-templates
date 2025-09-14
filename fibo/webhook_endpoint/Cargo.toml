@@ -10,7 +10,7 @@ crate-type = ["cdylib"]
 [dependencies]
 waki = "0.5.1"
 waki-macros = "0.5.1"
-wit-bindgen = "0.45.1"
+wit-bindgen = "0.46.0"
 
 [profile.release]
 opt-level = "s"
