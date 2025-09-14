@@ -35,7 +35,7 @@
             pkg-config
             rustToolchain
             wasm-tools
-            wasmtime
+            wasmtime.out
           ];
         in
         {
