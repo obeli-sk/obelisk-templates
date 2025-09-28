@@ -6,11 +6,11 @@ enabled = true
 
 [[activity_wasm]]
 name = "activity_myfibo"
-location.oci = "docker.io/getobelisk/example_activity_fibo_template:2025-01-30@sha256:f67904dd6d30bc4ca9bf844d41b6c11b146ebf66adaf05a2088e2a5f7fa46d29"
+location.oci = "docker.io/getobelisk/example_activity_fibo_template:2025-09-28@sha256:70a5ca86e5d581ba5df7037a83c0fe8860802b5ac25a1e117f1c7df9965fde92"
 
 [[workflow]]
 name = "workflow_myfibo"
-location.oci = "docker.io/getobelisk/example_workflow_fibo_template:2025-09-01@sha256:63c79c17abb5fecffb657e16a8f74ccc91d5987626f756f478071f4965de1fe0"
+location.oci = "docker.io/getobelisk/example_workflow_fibo_template:2025-09-28@sha256:20690121b5237f312bf2566b1563fdc5ed5d57491579bf1951f4fc0556101e1a"
 
 [[http_server]]
 name = "external"
