@@ -11,4 +11,4 @@ location.oci = "docker.io/getobelisk/example_activity_fibo_template:2025-09-28@s
 [[workflow]]
 name = "{{crate_name}}"
 location.path = "${OBELISK_TOML_DIR}/target/wasm32-unknown-unknown/release/{{crate_name}}.wasm"
-backtrace.sources = {"${OBELISK_TOML_DIR}/src/lib.rs" = "${OBELISK_TOML_DIR}/src/lib.rs"}
+backtrace.sources = {".../src/lib.rs" = "${OBELISK_TOML_DIR}/src/lib.rs"}
