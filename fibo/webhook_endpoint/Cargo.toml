@@ -14,3 +14,5 @@ wit-bindgen = "0.46.0"
 
 [profile.release]
 opt-level = "s"
+debug = "line-tables-only"
+
