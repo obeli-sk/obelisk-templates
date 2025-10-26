@@ -2,6 +2,7 @@ use flake .
 watch_file ./rust-toolchain.toml ./flake.nix
 
 export TEST_URL="https://api.ipify.org"
+export TEST_JSON_URL="https://api.ipify.org/?format=json"
 export GITHUB_TOKEN="..."
 export TEST_OWNER="obeli-sk"
 export TEST_REPO="obelisk"

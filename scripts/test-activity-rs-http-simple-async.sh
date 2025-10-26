@@ -9,4 +9,4 @@ CRATE_NAME="myhttp_activity"
 TEST='just test_url=http://localhost:8080 submit'
 run_test
 
-TEST_URL="http://localhost:8080" cargo test -- --ignored --nocapture
+TEST_URL="http://localhost:8080" TEST_JSON_URL="https://api.ipify.org/?format=json" cargo test -- --ignored --nocapture
