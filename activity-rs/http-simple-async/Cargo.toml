@@ -10,8 +10,8 @@ crate-type = ["cdylib"]
 [dependencies]
 anyhow = "1.0"
 serde_json = "1.0.145"
-wit-bindgen = "0.46.0"
-wstd = "0.5.6"
+wit-bindgen = "0.47.0"
+wstd = "0.6.1"
 
 [profile.release]
 opt-level = "s"
