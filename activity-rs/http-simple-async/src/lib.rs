@@ -2,7 +2,7 @@ use crate::exports::template_http::activity::http_get::Guest as GetGuest;
 use crate::exports::template_http::activity::http_post::Guest as PostGuest;
 use wit_bindgen::generate;
 use wstd::{
-    http::{Client, IntoBody as _, Method, Request},
+    http::{Body, Client, Method, Request},
     runtime::block_on,
 };
 
@@ -16,14 +16,15 @@ async fn get_plain(url: &str) -> Result<String, anyhow::Error> {
         .uri(url)
         .method(Method::GET)
         .header("User-Agent", "my-awesome-agent/1.0")
-        .body(wstd::io::empty())?;
+        .body(Body::empty())?;
     let response = client.send(request).await?;
     eprintln!("< {:?} {}", response.version(), response.status());
     for (key, value) in response.headers().iter() {
         let value = String::from_utf8_lossy(value.as_bytes());
         eprintln!("< {key}: {value}");
     }
-    let body = response.into_body().bytes().await?;
+    let mut body = response.into_body();
+    let body = body.contents().await?;
     Ok(String::from_utf8_lossy(&body).into_owned())
 }
 
@@ -33,7 +34,7 @@ async fn get_json(url: &str) -> Result<String, anyhow::Error> {
         .uri(url)
         .method(Method::GET)
         .header("Accept", "application/json")
-        .body(wstd::io::empty())?;
+        .body(Body::empty())?;
     let response = client.send(request).await?;
     eprintln!("< {:?} {}", response.version(), response.status());
     for (key, value) in response.headers().iter() {
@@ -50,14 +51,15 @@ async fn post(url: &str, conetnt_type: &str, body: String) -> Result<String, any
         .uri(url)
         .method(Method::POST)
         .header("content-type", conetnt_type)
-        .body(body.as_bytes().into_body())?;
+        .body(Body::from(body))?;
     let response = client.send(request).await?;
     eprintln!("< {:?} {}", response.version(), response.status());
     for (key, value) in response.headers().iter() {
         let value = String::from_utf8_lossy(value.as_bytes());
         eprintln!("< {key}: {value}");
     }
-    let body = response.into_body().bytes().await?;
+    let mut body = response.into_body();
+    let body = body.contents().await?;
     Ok(String::from_utf8_lossy(&body).into_owned())
 }
 
@@ -87,9 +89,17 @@ mod tests {
 
     #[ignore]
     #[test]
-    fn integration_test() {
+    fn get_plain() {
         let url = std::env::var("TEST_URL").expect("TEST_URL must be set");
         let body = Component::get_plain(url).unwrap();
+        println!("body: {body}");
+    }
+
+    #[ignore]
+    #[test]
+    fn get_json() {
+        let url = std::env::var("TEST_JSON_URL").expect("TEST_JSON_URL must be set");
+        let body = Component::get_json(url).unwrap();
         println!("body: {body}");
     }
 }
