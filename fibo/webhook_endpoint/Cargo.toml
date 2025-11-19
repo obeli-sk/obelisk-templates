@@ -8,9 +8,8 @@ edition = "2024"
 crate-type = ["cdylib"]
 
 [dependencies]
-waki = "0.5.1"
-waki-macros = "0.5.1"
 wit-bindgen = "0.48.0"
+wstd = "0.6.3"
 
 [profile.release]
 opt-level = "s"

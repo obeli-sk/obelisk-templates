@@ -2,13 +2,14 @@ use crate::obelisk::log::log::info;
 use crate::obelisk::types::time::ScheduleAt;
 use crate::template_fibo::workflow::fibo_workflow_ifc as workflow;
 use crate::template_fibo::workflow_obelisk_schedule::fibo_workflow_ifc as workflow_schedule;
-use waki::{handler, ErrorCode, Request, Response};
 use wit_bindgen::generate;
+use wstd::http::body::Body;
+use wstd::http::{Error, Request, Response, StatusCode};
 
 generate!({ generate_all });
 
-#[handler]
-fn handle(_req: Request) -> Result<Response, ErrorCode> {
+#[wstd::http_server]
+async fn main(_request: Request<Body>) -> Result<Response<Body>, Error> {
     let n = std::env::var("N")
         .expect("env var `N` must be set")
         .parse()
@@ -33,5 +34,8 @@ fn handle(_req: Request) -> Result<Response, ErrorCode> {
         "hardcoded: 1".to_string() // For performance testing - no activity is called
     };
     info(&format!("Sending response {fibo_res}"));
-    Response::builder().body(fibo_res).build()
+    Response::builder()
+        .status(StatusCode::OK)
+        .body(Body::from(fibo_res))
+        .map_err(Error::from)
 }
