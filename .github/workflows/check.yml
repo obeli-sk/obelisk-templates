@@ -25,11 +25,11 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: nixbuild/nix-quick-install-action@v30
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: Populate the nix store without Obelisk # Workaround for slow garnix cache
         run: |
           nix develop .#noObelisk --command echo
@@ -38,9 +38,9 @@ jobs:
           echo "extra-substituters = https://cache.garnix.io" >> ~/.config/nix/nix.conf
           echo "extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g" >> ~/.config/nix/nix.conf
           nix develop --command echo
-          
+
       - run: nix develop --command ./scripts/dev-deps.sh
-      
+
       - run: |
           if git diff --quiet; then
               echo "No changes"
@@ -52,48 +52,38 @@ jobs:
 
   check-e2e:
     runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        test:
+          - test-activity-rs-graphql-sync.sh
+          - test-activity-rs-http-simple-sync.sh
+          - test-activity-rs-http-simple-async.sh
+          - test-fibo-activity.sh
+          - test-fibo-webhook.sh
+          - test-fibo-workflow.sh
+
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.ref }} # Use the ref if provided, otherwise defaults to the current branch/commit
+          ref: ${{ github.event.inputs.ref }}
 
       - uses: nixbuild/nix-quick-install-action@v29
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Populate the nix store without Obelisk # Workaround for slow garnix cache
-        run: |
-          nix develop .#noObelisk --command echo
-      - name: Add garnix cache and populate the nix store with Obelisk
+      - name: Populate nix store (no Obelisk)
+        run: nix develop .#noObelisk --command echo
+
+      - name: Add garnix cache and populate with Obelisk
         run: |
           echo "extra-substituters = https://cache.garnix.io" >> ~/.config/nix/nix.conf
           echo "extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g" >> ~/.config/nix/nix.conf
           nix develop --command echo
 
-      - name: test-activity-graphql-github.sh
+      - name: Run test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TEST_OWNER: "obeli-sk"
           TEST_REPO: "obelisk"
-        run: |
-          nix develop --command ./scripts/test-activity-rs-graphql-sync.sh
-
-      - name: test-activity-http-simple-sync.sh
-        run: |
-          nix develop --command ./scripts/test-activity-rs-http-simple-sync.sh
-
-      - name: test-activity-http-simple-async.sh
-        run: |
-          nix develop --command ./scripts/test-activity-rs-http-simple-async.sh
-
-      - name: test-fibo-activity.sh
-        run: |
-          nix develop --command ./scripts/test-fibo-activity.sh
-
-      - name: test-fibo-webhook.sh
-        run: |
-          nix develop --command ./scripts/test-fibo-webhook.sh
-
-      - name: test-fibo-workflow.sh
-        run: |
-          nix develop --command ./scripts/test-fibo-workflow.sh
+        run: nix develop --command ./scripts/${{ matrix.test }}
