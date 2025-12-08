@@ -10,7 +10,7 @@ location.oci = "docker.io/getobelisk/example_activity_fibo_template:2025-09-28@s
 
 [[workflow]]
 name = "workflow_myfibo"
-location.oci = "docker.io/getobelisk/example_workflow_fibo_template:2025-09-28@sha256:20690121b5237f312bf2566b1563fdc5ed5d57491579bf1951f4fc0556101e1a"
+location.oci = "docker.io/getobelisk/example_workflow_fibo_template:2025-12-08@sha256:195ceb5cafd236ca5e045798adb234f866834f75d7207fa18173c27346192eac"
 
 [[http_server]]
 name = "external"
