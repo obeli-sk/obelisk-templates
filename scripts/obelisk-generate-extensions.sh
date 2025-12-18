@@ -22,5 +22,11 @@ generate() {
 
 generate "activity-rs" "activity_wasm"
 generate "fibo/activity" "activity_wasm"
+
+rm -rf fibo/workflow/wit/deps/template-fibo_activity-obelisk-ext
+cp -r fibo/activity/wit/gen/template-fibo_activity-obelisk-ext fibo/workflow/wit/deps/
 generate "fibo/workflow" "workflow"
+
+rm -rf fibo/webhook_endpoint/wit/deps/template-fibo_workflow-obelisk-schedule
+cp -r fibo/workflow/wit/gen/template-fibo_workflow-obelisk-schedule fibo/webhook_endpoint/wit/deps/
 generate "fibo/webhook" "webhook_endpoint"
