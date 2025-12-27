@@ -6,7 +6,7 @@ set -exuo pipefail
 cd "$(dirname "$0")/.."
 
 declare -a target_dirs=(
-  "./activity-rs/graphql-sync/"
+  "./activity-rs/graphql-async/"
   "./activity-rs/http-simple-async/"
   "./fibo/activity/"
   "./fibo/workflow/"

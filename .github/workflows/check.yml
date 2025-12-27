@@ -56,7 +56,7 @@ jobs:
       fail-fast: false
       matrix:
         test:
-          - test-activity-rs-graphql-sync.sh
+          - test-activity-rs-graphql-async.sh
           - test-activity-rs-http-simple-async.sh
           - test-fibo-activity.sh
           - test-fibo-webhook.sh

@@ -9,7 +9,7 @@ projects=(
   "fibo/activity"
   "fibo/webhook_endpoint"
   "fibo/workflow"
-  "activity-rs/graphql-sync/"
+  "activity-rs/graphql-async/"
   "activity-rs/http-simple-async/"
 )
 
