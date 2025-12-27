@@ -1,8 +1,13 @@
 use crate::exports::template_graphql_github::activity::graphql_github::Guest;
+use anyhow::{Context as _, bail};
 use cynic::GraphQlResponse;
 use exports::template_graphql_github::activity::graphql_github;
-use waki::Client;
 use wit_bindgen::generate;
+use wstd::http::Client;
+use wstd::{
+    http::{Body, Method, Request, StatusCode},
+    runtime::block_on,
+};
 
 generate!({ generate_all });
 pub(crate) struct Component;
@@ -11,23 +16,43 @@ export!(Component);
 #[cynic::schema("github")]
 mod schema {}
 
+async fn send_query(
+    owner: String,
+    repo: String,
+) -> Result<GraphQlResponse<Releases>, anyhow::Error> {
+    let github_token =
+        std::env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN must be passed as environment variable");
+    let query = build_query(&owner, &repo);
+    println!("query to send: {query:?}");
+
+    let req = Request::builder()
+        .header("Authorization", &format!("Bearer {github_token}"))
+        .header("Content-Type", "application/json")
+        .header("User-Agent", "test")
+        .method(Method::POST)
+        .uri("https://api.github.com/graphql")
+        .body(
+            Body::from_json(&query)
+                .with_context(|| format!("cannot serialize the query {query:?}"))?,
+        )
+        .context("cannot create the request")?;
+    let mut resp = Client::new()
+        .send(req)
+        .await
+        .context("cannot send the request")?;
+
+    if resp.status() != StatusCode::OK {
+        bail!("Unexpected status code: {}", resp.status());
+    }
+    resp.body_mut()
+        .json()
+        .await
+        .context("deserialization error")
+}
+
 impl Guest for Component {
     fn releases(owner: String, repo: String) -> Result<Vec<graphql_github::Release>, String> {
-        let query = build_query(&owner, &repo);
-        println!("query to send: {query:?}");
-        let github_token = std::env::var("GITHUB_TOKEN")
-            .expect("GITHUB_TOKEN must be passed as environment variable");
-        let resp = Client::new()
-            .post("https://api.github.com/graphql")
-            .header("Authorization", format!("Bearer {github_token}"))
-            .header("User-Agent", "test")
-            .json(&query)
-            .send()
-            .map_err(|err| format!("{err:?}"))?;
-        if resp.status_code() != 200 {
-            return Err(format!("Unexpected status code: {}", resp.status_code()));
-        }
-        let resp: GraphQlResponse<Releases> = resp.json().map_err(|err| format!("{err:?}"))?;
+        let resp = block_on(send_query(owner, repo)).map_err(|err| err.to_string())?;
         if let Some(errors) = resp.errors {
             eprintln!("Got errors :{errors:?}");
         }
@@ -41,7 +66,6 @@ impl Guest for Component {
                 .flatten()
                 .map(graphql_github::Release::from)
                 .collect();
-            println!("Got {} releases for {owner}/{repo}", releases.len());
             Ok(releases)
         } else {
             return Err("data part is missing".to_string());
@@ -103,8 +127,8 @@ pub struct Release {
 
 #[cfg(test)]
 mod tests {
-    use crate::exports::template_graphql_github::activity::graphql_github::Guest as _;
     use crate::Component;
+    use crate::exports::template_graphql_github::activity::graphql_github::Guest as _;
 
     #[ignore]
     #[test]
