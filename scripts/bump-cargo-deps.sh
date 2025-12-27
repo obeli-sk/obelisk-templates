@@ -10,7 +10,6 @@ projects=(
   "fibo/webhook_endpoint"
   "fibo/workflow"
   "activity-rs/graphql-sync/"
-  "activity-rs/http-simple-sync/"
   "activity-rs/http-simple-async/"
 )
 
@@ -23,7 +22,7 @@ for dir in "${projects[@]}"; do
   sed -i 's/name = "{{project-name}}"/name = "x"/' "$toml"
 
   (
-    cd "$dir" 
+    cd "$dir"
     cargo upgrade --incompatible
     cargo update
 )

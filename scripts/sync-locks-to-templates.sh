@@ -7,7 +7,6 @@ cd "$(dirname "$0")/.."
 
 declare -a target_dirs=(
   "./activity-rs/graphql-sync/"
-  "./activity-rs/http-simple-sync/"
   "./activity-rs/http-simple-async/"
   "./fibo/activity/"
   "./fibo/workflow/"
