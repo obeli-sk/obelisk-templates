@@ -17,15 +17,24 @@ Ensure you have the following installed before using the template:
 If you're using **Nix**, you can obtain `cargo-generate` using `nix shell nixpkgs#cargo-generate`.
 
 ## Access Token
-Generate a GitHub access token (classic) [here](https://github.com/settings/tokens/new).
+Either create new GitHub token or use your personal token.
+To generate a GitHub access token (classic) go to [token creation](https://github.com/settings/tokens/new) page.
 No scopes need to be selected. Export the token as an environment variable:
 ```sh
 export GITHUB_TOKEN="$(gh auth token)"
 ```
 
+If using `direnv` with Nix:
+```sh
+cp .envrc-example .envrc
+sed -i "s|^export GITHUB_TOKEN=.*|export GITHUB_TOKEN=\"$(gh auth token)\"|" .envrc
+git add .
+direnv allow
+```
+
 ## Getting Started
 
-### Generate the Template
+### Generate the project from the Template
 Run the following command to create a new project based on this template:
 ```sh
 cargo-generate generate obeli-sk/obelisk-templates graphql-github/activity --name mygithub_activity
@@ -33,12 +42,6 @@ cargo-generate generate obeli-sk/obelisk-templates graphql-github/activity --nam
 
 ### Build the Activity
 Navigate into the generated folder.
-If you're using **Nix** and **direnv**, you can set up the environment using the provided [.envrc-example](./.envrc-example):
-```sh
-ln -s .envrc-example .envrc
-git add .
-direnv allow
-```
 
 Build the activity in release mode:
 ```sh
@@ -84,7 +87,7 @@ Exports:
 Submit an execution request to issue a GET request:
 ```sh
 obelisk client execution submit --follow \
- template-graphql-github:activity/graphql-github.releases '["obeli-sk", "obelisk"]'
+ .../graphql-github.releases -- '"obeli-sk"' '"obelisk"'
 ```
 Example output:
 ```
