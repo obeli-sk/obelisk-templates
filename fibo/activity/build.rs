@@ -9,11 +9,5 @@ fn main() -> Result<()> {
     }
     .build()
     .generate_to_out_dir(None)?;
-
-    println!("cargo:rerun-if-changed=schemas/github.graphql");
-    cynic_codegen::register_schema("github")
-        .from_sdl_file("schemas/github.graphql")?
-        .as_default()?;
-
     Ok(())
 }

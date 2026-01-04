@@ -1,14 +1,19 @@
-use crate::exports::template_http::activity::http_get::Guest as GetGuest;
-use crate::exports::template_http::activity::http_post::Guest as PostGuest;
-use wit_bindgen::generate;
+use crate::generated::exports::template_http::activity::http_get::Guest as GetGuest;
+use crate::generated::exports::template_http::activity::http_post::Guest as PostGuest;
 use wstd::{
     http::{Body, Client, Method, Request},
     runtime::block_on,
 };
+use generated::export;
 
-generate!({ generate_all });
+mod generated {
+    #![allow(clippy::empty_line_after_outer_attr)]
+    include!(concat!(env!("OUT_DIR"), "/any.rs"));
+}
+
 struct Component;
-export!(Component);
+export!(Component with_types_in generated);
+
 
 async fn get_plain(url: &str) -> Result<String, anyhow::Error> {
     let client = Client::new();
@@ -85,7 +90,7 @@ impl PostGuest for Component {
 
 #[cfg(test)]
 mod tests {
-    use crate::{Component, exports::template_http::activity::http_get::Guest as _};
+    use crate::{Component, generated::exports::template_http::activity::http_get::Guest as _};
 
     #[ignore]
     #[test]

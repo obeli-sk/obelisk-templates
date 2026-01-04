@@ -1,12 +1,14 @@
-use crate::obelisk::log::log::info;
-use crate::obelisk::types::time::ScheduleAt;
-use crate::template_fibo::workflow::fibo_workflow_ifc as workflow;
-use crate::template_fibo::workflow_obelisk_schedule::fibo_workflow_ifc as workflow_schedule;
-use wit_bindgen::generate;
+use crate::generated::obelisk::log::log::info;
+use crate::generated::obelisk::types::time::ScheduleAt;
+use crate::generated::template_fibo::workflow::fibo_workflow_ifc as workflow;
+use crate::generated::template_fibo::workflow_obelisk_schedule::fibo_workflow_ifc as workflow_schedule;
 use wstd::http::body::Body;
 use wstd::http::{Error, Request, Response, StatusCode};
 
-generate!({ generate_all });
+mod generated {
+    #![allow(clippy::empty_line_after_outer_attr)]
+    include!(concat!(env!("OUT_DIR"), "/any.rs"));
+}
 
 #[wstd::http_server]
 async fn main(_request: Request<Body>) -> Result<Response<Body>, Error> {

@@ -1,17 +1,21 @@
-use crate::exports::template_graphql_github::activity::graphql_github::Guest;
+use generated::exports::template_graphql_github::activity::graphql_github::Guest;
 use anyhow::{Context as _, bail};
 use cynic::GraphQlResponse;
-use exports::template_graphql_github::activity::graphql_github;
-use wit_bindgen::generate;
+use generated::exports::template_graphql_github::activity::graphql_github;
 use wstd::http::Client;
 use wstd::{
     http::{Body, Method, Request, StatusCode},
     runtime::block_on,
 };
+use generated::export;
 
-generate!({ generate_all });
-pub(crate) struct Component;
-export!(Component);
+mod generated {
+    #![allow(clippy::empty_line_after_outer_attr)]
+    include!(concat!(env!("OUT_DIR"), "/any.rs"));
+}
+
+struct Component;
+export!(Component with_types_in generated);
 
 #[cynic::schema("github")]
 mod schema {}
@@ -128,7 +132,7 @@ pub struct Release {
 #[cfg(test)]
 mod tests {
     use crate::Component;
-    use crate::exports::template_graphql_github::activity::graphql_github::Guest as _;
+    use crate::generated::exports::template_graphql_github::activity::graphql_github::Guest as _;
 
     #[ignore]
     #[test]
