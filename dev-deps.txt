@@ -1,8 +1,8 @@
 cargo-edit-upgrade 0.13.8
-cargo generate 0.23.5
+cargo generate 0.23.7
 just 1.45.0
-obelisk 0.33.1
+obelisk 0.34.0
 pkg-config 0.29.2
 rustc 1.92.0 (ded5c06cf 2025-12-08)
-wasm-tools 1.243.0
-wasmtime 39.0.1
+wasm-tools 1.244.0
+wasmtime 40.0.0
