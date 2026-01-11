@@ -13,7 +13,7 @@ wit-bindgen = "0.50.0"
 [build-dependencies]
 anyhow = "1.0"
 wit-bindgen-rust = "0.50.0"
-wit-parser = "0.243.0"
+wit-parser = "0.244.0"
 
 [profile.release]
 opt-level = "s"
