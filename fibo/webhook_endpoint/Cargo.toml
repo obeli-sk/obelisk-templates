@@ -8,12 +8,12 @@ edition = "2024"
 crate-type = ["cdylib"]
 
 [dependencies]
-wit-bindgen = "0.51.0"
+wit-bindgen = "0.52.0"
 wstd = "0.6.5"
 
 [build-dependencies]
 anyhow = "1.0"
-wit-bindgen-rust = "0.51.0"
+wit-bindgen-rust = "0.52.0"
 wit-parser = "0.244.0"
 
 [profile.release]
