@@ -19,7 +19,7 @@ cleanup() {
 
 wait_for_obelisk() {
     SECONDS=0
-    while ! obelisk client component list 2>/dev/null; do
+    while ! obelisk component list 2>/dev/null; do
         if [[ $SECONDS -ge 10 ]]; then
             echo "Timeout reached"
             exit 1

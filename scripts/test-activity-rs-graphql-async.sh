@@ -9,7 +9,7 @@ TEST_REPO="${TEST_REPO:?TEST_REPO is not set}"
 
 TEMPLATE="activity-rs/graphql-async"
 CRATE_NAME="mygithub_activity"
-TEST='obelisk client execution submit --follow template-graphql-github:activity/graphql-github.releases ["obeli-sk","obelisk"]'
+TEST='obelisk execution submit --follow template-graphql-github:activity/graphql-github.releases ["obeli-sk","obelisk"]'
 run_test
 
 cargo test -- --ignored --nocapture

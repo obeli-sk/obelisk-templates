@@ -66,6 +66,7 @@ hardcoded: 1
 If you have an account on [Docker Hub](https://hub.docker.com), [GitHub Container Registry](https://github.com/container-registry/)
 or other OCI Registry, you can push the WASM:
 ```sh
-obelisk client component push "target/wasm32-wasip2/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>
+NEW_LOCATION=$(obelisk component push "target/wasm32-wasip2/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>)
+
+obelisk component add --name {{crate_name}} webhook_endpoint $NEW_LOCATION
 ```
-You can then update the `obelisk.toml` - replace `location.path` with `location.oci = "docker.io/<your account>/<your repo>:<tag>@sha256:<digest>"`.

@@ -10,5 +10,5 @@ serve:
 	obelisk server run
 
 submit:
-	obelisk client execution submit --follow template-http:activity/http-get.get-plain '["{{ "test_url" | prepend: "{{" | append: "}}" }}"]'
+	obelisk execution submit --follow template-http:activity/http-get.get-plain '["{{ "test_url" | prepend: "{{" | append: "}}" }}"]'
 

@@ -45,12 +45,12 @@ jobs:
 
       - name: Generate extensions
         run: |
-          nix develop . --command ./scripts/obelisk-generate-extensions.sh
+          nix develop . --command ./scripts/obelisk-generate-wit-deps.sh
 
       - name: Generate Unique Branch Name
         id: branch-name
         run: echo "branch_name=sync-flake-lock-$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
-        
+
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"

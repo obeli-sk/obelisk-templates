@@ -1,12 +1,7 @@
 api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
 webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
 
-[log.stdout]
-enabled = true
-
 [[activity_wasm]]
 name = "{{crate_name}}"
-location.path = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
+location = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
 env_vars = ["GITHUB_TOKEN"]                                  # Must be set as an environment variable when running the server.
-forward_stdout = "stderr"                                    # Forwards stdout to host's stderr.
-forward_stderr = "stderr"                                    # Forwards stderr to host's stderr.
