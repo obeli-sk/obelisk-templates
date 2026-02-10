@@ -2,7 +2,5 @@ api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API serv
 webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
 
 [[activity_wasm]]
-name = "{{crate_name}}"
-location = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
-
-
+name = "activity_myfibo"
+location = "oci://docker.io/getobelisk/example_activity_fibo_template:2025-09-28@sha256:70a5ca86e5d581ba5df7037a83c0fe8860802b5ac25a1e117f1c7df9965fde92"

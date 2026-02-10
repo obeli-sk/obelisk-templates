@@ -1,5 +1,5 @@
 package template-fibo:activity;
 
 interface fibo-activity-ifc {
-    fibo: func(n: u8) -> result<u64>;
+  fibo: func(n: u8) -> result<u64>;
 }

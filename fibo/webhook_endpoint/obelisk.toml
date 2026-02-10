@@ -1,16 +1,13 @@
 api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
 webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
 
-[log.stdout]
-enabled = true
-
 [[activity_wasm]]
 name = "activity_myfibo"
-location.oci = "docker.io/getobelisk/example_activity_fibo_template:2025-09-28@sha256:70a5ca86e5d581ba5df7037a83c0fe8860802b5ac25a1e117f1c7df9965fde92"
+location = "oci://docker.io/getobelisk/example_activity_fibo_template:2025-09-28@sha256:70a5ca86e5d581ba5df7037a83c0fe8860802b5ac25a1e117f1c7df9965fde92"
 
 [[workflow]]
 name = "workflow_myfibo"
-location.oci = "docker.io/getobelisk/example_workflow_fibo_template:2025-12-08@sha256:195ceb5cafd236ca5e045798adb234f866834f75d7207fa18173c27346192eac"
+location = "oci://docker.io/getobelisk/example_workflow_fibo_template:2025-12-08@sha256:195ceb5cafd236ca5e045798adb234f866834f75d7207fa18173c27346192eac"
 
 [[http_server]]
 name = "external"
@@ -18,9 +15,7 @@ listening_addr = "0.0.0.0:9000"
 
 [[webhook_endpoint]]
 name = "{{crate_name}}"
-location.path = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
+location = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
 http_server = "external"
 routes = [{ methods = ["GET"], route = "/fibo/:N/:ITERATIONS" }]
-forward_stdout = "stderr"                                          # forwards stdout to host's stderr
-forward_stderr = "stderr"                                          # forwards stderr to host's stderr
 backtrace.sources = {".../src/lib.rs" = "${OBELISK_TOML_DIR}/src/lib.rs"}

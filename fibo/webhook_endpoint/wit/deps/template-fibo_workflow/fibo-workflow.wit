@@ -1,6 +1,0 @@
-package template-fibo:workflow;
-
-interface fibo-workflow-ifc {
-    fiboa: func(n: u8, iterations: u32) -> result<u64>;
-    fiboa-concurrent: func(n: u8, iterations: u32) -> result<u64>;
-}

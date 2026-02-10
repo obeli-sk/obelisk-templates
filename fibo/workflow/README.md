@@ -60,7 +60,7 @@ or use the CLI as described in the next sections.
 ### List Available Functions
 To see the available exported functions, run:
 ```sh
-obelisk client component list
+obelisk component list
 ```
 Example output:
 ```
@@ -78,7 +78,7 @@ Exports:
 Submit an execution request to compute Fibonacci(10). The workflow requests to
 run the `fibo` activity 1000 times:
 ```sh
-obelisk client execution submit --follow \
+obelisk execution submit --follow \
  template-fibo:workflow/fibo-workflow-ifc.fiboa [10,800]
 ```
 Example output:
@@ -97,10 +97,12 @@ Execution took 983.942488ms.
 If you have an account on [Docker Hub](https://hub.docker.com), [GitHub Container Registry](https://github.com/container-registry/)
 or other OCI Registry, you can push the WASM:
 ```sh
-obelisk client component push \
- "target/wasm32-unknown-unknown/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>
+NEW_LOCATION=$(obelisk component push \
+ "target/wasm32-unknown-unknown/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>)
+
+obelisk component add --name {{crate_name}} workflow $NEW_LOCATION
 ```
-You can then update the `obelisk.toml` - replace `location.path` with `location.oci = "docker.io/<your account>/<your repo>:<tag>@sha256:<digest>"`.
+
 
 ### Run the concurrent version
 Run the `fiboa-concurrent` workflow, compare the implementation and execution duration.
