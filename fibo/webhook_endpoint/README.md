@@ -43,17 +43,15 @@ already part of the provided [obelisk.toml](./obelisk.toml) configuration file.
 ### Run the Server
 Start the server:
 ```sh
-obelisk server run
+obelisk server run --deployment obelisk.toml
 ```
-Note: If running in a folder that does not contain `obelisk.toml` you must specify the path:
-`obelisk server run --config <path to obelisk.toml>`.
 
 ### Test the Webhook Endpoint
 
 ### Call the endpoint using curl
 Return a hardcoded response:
 ```sh
-curl --fail localhost:9000/fibo/1/1
+curl --fail localhost:9090/fibo/1/1
 ```
 The output should look like this:
 ```
@@ -68,5 +66,5 @@ or other OCI Registry, you can push the WASM:
 ```sh
 NEW_LOCATION=$(obelisk component push "target/wasm32-wasip2/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>)
 
-obelisk component add --name {{crate_name}} webhook_endpoint $NEW_LOCATION
+obelisk component add --name {{crate_name}} webhook_endpoint_wasm $NEW_LOCATION
 ```

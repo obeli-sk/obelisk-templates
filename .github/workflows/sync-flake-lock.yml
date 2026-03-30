@@ -43,7 +43,7 @@ jobs:
           # At this point `flake.lock` contains the latest obelisk revision.
           scripts/sync-locks-to-templates.sh
 
-      - name: Generate extensions
+      - name: obelisk-generate-wit-deps.sh
         run: |
           nix develop . --command ./scripts/obelisk-generate-wit-deps.sh
 

@@ -1,14 +1,7 @@
-api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
-webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
-
 [[activity_wasm]]
 name = "activity_myfibo"
-location = "oci://docker.io/getobelisk/example_activity_fibo_template:2025-09-28@sha256:70a5ca86e5d581ba5df7037a83c0fe8860802b5ac25a1e117f1c7df9965fde92"
+location = "oci://docker.io/getobelisk/example_activity_fibo_template:2026-03-30@sha256:d580a48e5d81b7cfc7092c06247ee8115f6ef26c4c47d9d802fb8a83849d1738"
 
-[[workflow]]
+[[workflow_wasm]]
 name = "workflow_myfibo"
-location = "oci://docker.io/getobelisk/example_workflow_fibo_template:2025-12-08@sha256:195ceb5cafd236ca5e045798adb234f866834f75d7207fa18173c27346192eac"
-
-[[http_server]]
-name = "external"
-listening_addr = "0.0.0.0:9000"
+location = "oci://docker.io/getobelisk/example_workflow_fibo_template:2026-03-30@sha256:90577177c3a5ddd0b0c439b4c14cd9e90b47b1ed418a562e4821a08fb2dbfe41"

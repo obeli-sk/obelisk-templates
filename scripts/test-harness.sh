@@ -41,9 +41,9 @@ run_test() {
     cargo-generate generate --path $GIT_ROOT $TEMPLATE --name $CRATE_NAME
     cd $CRATE_NAME
     cargo build --release
-    obelisk server verify
+    obelisk server verify --deployment obelisk.toml
 
-    obelisk server run &
+    obelisk server run --deployment obelisk.toml &
     PID=$!
 
     trap cleanup EXIT
