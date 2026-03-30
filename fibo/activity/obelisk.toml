@@ -3,5 +3,5 @@ webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui we
 
 [[activity_wasm]]
 name = "{{crate_name}}"
-location = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
+location = "${DEPLOYMENT_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
 

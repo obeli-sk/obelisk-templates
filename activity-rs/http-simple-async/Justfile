@@ -7,7 +7,7 @@ test:
 	TEST_URL="{{ "test_url" | prepend: "{{" | append: "}}" }}" cargo test -- --ignored --nocapture
 
 serve:
-	obelisk server run
+	obelisk server run --deployment obelisk.toml
 
 submit:
 	obelisk execution submit --follow template-http:activity/http-get.get-plain '["{{ "test_url" | prepend: "{{" | append: "}}" }}"]'

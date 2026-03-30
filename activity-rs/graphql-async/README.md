@@ -62,10 +62,8 @@ cargo test -- --ignored --nocapture
 ### Run the Server
 Start the server:
 ```sh
-obelisk server run
+obelisk server run --deployment obelisk.toml
 ```
-Note: If running in a folder that does not contain `obelisk.toml` you must specify the path:
-`obelisk server run --config <path to obelisk.toml>`.
 
 ### Test the Activity
 Access the activity via the web interface at [127.0.0.1:8080](http://127.0.0.1:8080),

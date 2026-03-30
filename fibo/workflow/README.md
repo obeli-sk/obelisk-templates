@@ -48,10 +48,8 @@ server startup.
 ### Run the Server
 Start the server using the provided [obelisk.toml](./obelisk.toml) configuration:
 ```sh
-obelisk server run
+obelisk server run --deployment obelisk.toml
 ```
-Note: If running in a folder that does not contain `obelisk.toml` you must specify the path:
-`obelisk server run --config <path to obelisk.toml>`.
 
 ### Test the Workflow
 Access the workflow via the web interface at [127.0.0.1:8080](http://127.0.0.1:8080),
@@ -100,7 +98,7 @@ or other OCI Registry, you can push the WASM:
 NEW_LOCATION=$(obelisk component push \
  "target/wasm32-unknown-unknown/release/{{crate_name}}.wasm" docker.io/<your account>/<your repo>:<tag>)
 
-obelisk component add --name {{crate_name}} workflow $NEW_LOCATION
+obelisk component add --name {{crate_name}} workflow_wasm $NEW_LOCATION
 ```
 
 
