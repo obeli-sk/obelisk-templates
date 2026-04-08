@@ -1,10 +1,10 @@
 [[activity_wasm]]
 name = "activity_myfibo"
-location = "oci://docker.io/getobelisk/example_activity_fibo_template:2026-03-30@sha256:d580a48e5d81b7cfc7092c06247ee8115f6ef26c4c47d9d802fb8a83849d1738"
+location = "oci://docker.io/getobelisk/example_activity_fibo_template:2026-04-08@sha256:0507c0bee133edcaef50d5712397cdd376475e4c69d8b821896a0a218f7320ce"
 
 [[workflow_wasm]]
 name = "workflow_myfibo"
-location = "oci://docker.io/getobelisk/example_workflow_fibo_template:2026-03-30@sha256:90577177c3a5ddd0b0c439b4c14cd9e90b47b1ed418a562e4821a08fb2dbfe41"
+location = "oci://docker.io/getobelisk/example_workflow_fibo_template:2026-04-08@sha256:ac27cb6ccb5986e2d0cb129603e19ace9e63a587c298798288eb05468307bb8f"
 
 [[webhook_endpoint_wasm]]
 name = "{{crate_name}}"
