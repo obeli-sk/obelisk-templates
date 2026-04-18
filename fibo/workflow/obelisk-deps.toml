@@ -1,3 +1,0 @@
-[[activity_wasm]]
-name = "activity_myfibo"
-location = "oci://docker.io/getobelisk/example_activity_fibo_template:2026-04-08@sha256:0507c0bee133edcaef50d5712397cdd376475e4c69d8b821896a0a218f7320ce"

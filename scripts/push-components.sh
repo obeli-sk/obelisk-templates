@@ -49,9 +49,7 @@ ACTIVITY_LOCATION=$(build_and_push \
 
 update_toml "$ACTIVITY_LOCATION" activity_myfibo \
     fibo/workflow/deployment.toml \
-    fibo/webhook_endpoint/deployment.toml \
-    fibo/workflow/obelisk-deps.toml \
-    fibo/webhook_endpoint/obelisk-deps.toml
+    fibo/webhook_endpoint/deployment.toml
 
 # Workflow
 WORKFLOW_LOCATION=$(build_and_push \
@@ -60,7 +58,6 @@ WORKFLOW_LOCATION=$(build_and_push \
     example_workflow_fibo_template)
 
 update_toml "$WORKFLOW_LOCATION" workflow_myfibo \
-    fibo/webhook_endpoint/deployment.toml \
-    fibo/webhook_endpoint/obelisk-deps.toml
+    fibo/webhook_endpoint/deployment.toml
 
 echo "Done."
