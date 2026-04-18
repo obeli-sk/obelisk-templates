@@ -26,7 +26,7 @@ build_and_push() {
     (
         cd "$TMP_DIR/$CRATE_NAME"
         cargo build --release >&2  # same reason as above
-        obelisk component push --deployment obelisk.toml "$CRATE_NAME" "${PREFIX}${OCI_NAME}:${TAG}"
+        obelisk component push --deployment deployment.toml "$CRATE_NAME" "${PREFIX}${OCI_NAME}:${TAG}"
     )
 }
 
@@ -48,8 +48,8 @@ ACTIVITY_LOCATION=$(build_and_push \
     example_activity_fibo_template)
 
 update_toml "$ACTIVITY_LOCATION" activity_myfibo \
-    fibo/workflow/obelisk.toml \
-    fibo/webhook_endpoint/obelisk.toml \
+    fibo/workflow/deployment.toml \
+    fibo/webhook_endpoint/deployment.toml \
     fibo/workflow/obelisk-deps.toml \
     fibo/webhook_endpoint/obelisk-deps.toml
 
@@ -60,7 +60,7 @@ WORKFLOW_LOCATION=$(build_and_push \
     example_workflow_fibo_template)
 
 update_toml "$WORKFLOW_LOCATION" workflow_myfibo \
-    fibo/webhook_endpoint/obelisk.toml \
+    fibo/webhook_endpoint/deployment.toml \
     fibo/webhook_endpoint/obelisk-deps.toml
 
 echo "Done."

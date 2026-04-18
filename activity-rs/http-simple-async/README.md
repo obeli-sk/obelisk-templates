@@ -39,7 +39,7 @@ just build
 ```
 
 Note: The built WASM Component "target/wasm32-wasip2/release/{{crate_name}}.wasm" is
-already part of the provided [obelisk.toml](./obelisk.toml) configuration file.
+already part of the provided [deployment.toml](./deployment.toml) configuration file.
 
 To run the integration test, run
 ```sh
