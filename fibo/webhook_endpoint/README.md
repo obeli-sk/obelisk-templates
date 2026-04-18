@@ -38,12 +38,12 @@ cargo build --release
 ```
 
 Note: The built WASM Component "target/wasm32-wasip2/release/{{crate_name}}.wasm" is
-already part of the provided [obelisk.toml](./obelisk.toml) configuration file.
+already part of the provided [deployment.toml](./deployment.toml) configuration file.
 
 ### Run the Server
 Start the server:
 ```sh
-obelisk server run --deployment obelisk.toml
+obelisk server run --deployment deployment.toml
 ```
 
 ### Test the Webhook Endpoint

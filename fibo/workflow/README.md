@@ -46,9 +46,9 @@ the WASM artifact is a Core WASM Module, not a WASM Component. Obelisk converts 
 server startup.
 
 ### Run the Server
-Start the server using the provided [obelisk.toml](./obelisk.toml) configuration:
+Start the server using the provided [deployment.toml](./deployment.toml) configuration:
 ```sh
-obelisk server run --deployment obelisk.toml
+obelisk server run --deployment deployment.toml
 ```
 
 ### Test the Workflow
