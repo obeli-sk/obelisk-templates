@@ -24,7 +24,7 @@ for dir in "${projects[@]}"; do
   (
     cd "$dir"
     cargo update
-    cargo upgrade $1
+    cargo upgrade ${1:-}
 )
 
   # Restore original template name
