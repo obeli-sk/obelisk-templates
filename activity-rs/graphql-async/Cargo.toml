@@ -19,7 +19,7 @@ wstd = "0.6.6"
 cynic-codegen = "3.13.2"
 anyhow = "1.0"
 wit-bindgen-rust = "0.57.1"
-wit-parser = "0.249.0"
+wit-parser = "0.250.0"
 
 [profile.release]
 opt-level = "s"
