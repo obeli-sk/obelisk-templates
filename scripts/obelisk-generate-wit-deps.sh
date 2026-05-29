@@ -19,7 +19,7 @@ rm -rf wit/deps/obelisk_*
 obelisk generate wit-support workflow wit/deps
 tmp=$(resolve_deployment deployment.toml)
 trap "rm -f $tmp" EXIT
-obelisk generate wit-deps --overwrite --skip-local --deployment "$tmp" wit/deps
+obelisk generate wit-deps --force --skip-local --deployment "$tmp" wit/deps
 )
 
 (
@@ -28,5 +28,5 @@ rm -rf wit/deps/obelisk_*
 obelisk generate wit-support webhook_endpoint wit/deps
 tmp=$(resolve_deployment deployment.toml)
 trap "rm -f $tmp" EXIT
-obelisk generate wit-deps --overwrite --skip-local --deployment "$tmp" wit/deps
+obelisk generate wit-deps --force --skip-local --deployment "$tmp" wit/deps
 )

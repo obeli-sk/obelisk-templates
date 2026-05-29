@@ -1,19 +1,13 @@
 #!/usr/bin/env bash
 
-# Copies `flake.lock` and `rust-toolchain.toml` from the root of this repository to all of its templates.
+# Copies root-level `flake.lock` and `rust-toolchain.toml` to every matching file
+# found in subdirectories of this repository.
 
 set -exuo pipefail
 cd "$(dirname "$0")/.."
 
-declare -a target_dirs=(
-  "./activity-rs/graphql-async/"
-  "./activity-rs/http-simple-async/"
-  "./fibo/activity/"
-  "./fibo/workflow/"
-  "./fibo/webhook_endpoint/"
-)
-for dir in "${target_dirs[@]}"; do
-  echo "Copying files to: $dir"
-  cp flake.lock "$dir"
-  cp rust-toolchain.toml "$dir"
-done
+find . -mindepth 2 \( -name flake.lock -o -name rust-toolchain.toml \) -print0 |
+  while IFS= read -r -d '' path; do
+    echo "Syncing: $path"
+    cp "./$(basename "$path")" "$path"
+  done
