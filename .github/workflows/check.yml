@@ -30,13 +30,13 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Populate the nix store without Obelisk # Workaround for slow garnix cache
+      - name: Populate the nix store without Obelisk # pull base deps from cache.nixos.org first
         run: |
           nix develop .#noObelisk --command echo
-      - name: Add garnix cache and populate the nix store with Obelisk
+      - name: Add cachix cache and populate the nix store with Obelisk
         run: |
-          echo "extra-substituters = https://cache.garnix.io" >> ~/.config/nix/nix.conf
-          echo "extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g" >> ~/.config/nix/nix.conf
+          echo "extra-substituters = https://obeli-sk.cachix.org" >> ~/.config/nix/nix.conf
+          echo "extra-trusted-public-keys = obeli-sk.cachix.org-1:31iM9GWSEhAXvvuTWQ7CvAcwvgRzsuJ9yJghywSd3Jw=" >> ~/.config/nix/nix.conf
           nix develop --command echo
 
       - run: nix develop --command ./scripts/dev-deps.sh
@@ -74,10 +74,10 @@ jobs:
       - name: Populate nix store (no Obelisk)
         run: nix develop .#noObelisk --command echo
 
-      - name: Add garnix cache and populate with Obelisk
+      - name: Add cachix cache and populate with Obelisk
         run: |
-          echo "extra-substituters = https://cache.garnix.io" >> ~/.config/nix/nix.conf
-          echo "extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g" >> ~/.config/nix/nix.conf
+          echo "extra-substituters = https://obeli-sk.cachix.org" >> ~/.config/nix/nix.conf
+          echo "extra-trusted-public-keys = obeli-sk.cachix.org-1:31iM9GWSEhAXvvuTWQ7CvAcwvgRzsuJ9yJghywSd3Jw=" >> ~/.config/nix/nix.conf
           nix develop --command echo
 
       - name: Run test
