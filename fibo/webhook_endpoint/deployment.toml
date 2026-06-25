@@ -8,6 +8,6 @@ location = "oci://docker.io/getobelisk/example_workflow_fibo_template:2026-04-08
 
 [[webhook_endpoint_wasm]]
 name = "{{crate_name}}"
-location = "${DEPLOYMENT_DIR}/target/wasm32-wasip2/release/{{crate_name}}.wasm"
+location = "target/wasm32-wasip2/release/{{crate_name}}.wasm"
 routes = [{ methods = ["GET"], route = "/fibo/:N/:ITERATIONS" }]
-backtrace.sources = {".../src/lib.rs" = "${DEPLOYMENT_DIR}/src/lib.rs"}
+backtrace.sources = {".../src/lib.rs" = "src/lib.rs"}
