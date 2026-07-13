@@ -3,8 +3,8 @@
 # Builds and pushes the fibo activity and workflow WASM components to the OCI
 # registry, then updates all deployment TOML files that reference them.
 #
-# Usage: ./scripts/push-components.sh <TAG>
-# Example: ./scripts/push-components.sh "$(date +%Y-%m-%d)"
+# Usage: push-components.sh <TAG>
+# Example: push-components.sh "$(date +%Y-%m-%d)"
 
 set -exuo pipefail
 cd "$(dirname "$0")/.."

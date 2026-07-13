@@ -30,7 +30,7 @@ impl Guest for Component {
         }
         let mut last = 0;
         for _ in 0..iterations {
-            last = fibo_await_next(&join_set).unwrap().1.unwrap();
+            last = fibo_await_next(&join_set).unwrap().unwrap();
         }
         Ok(last)
     }

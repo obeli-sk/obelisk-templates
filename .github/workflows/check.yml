@@ -85,4 +85,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TEST_OWNER: "obeli-sk"
           TEST_REPO: "obelisk"
+          OBELISK__API__TOKEN: "ci"
         run: nix develop --command ./scripts/${{ matrix.test }}

@@ -38,7 +38,7 @@ run_test() {
     echo "Temporary directory created: $tmp_dir"
     cd $tmp_dir
 
-    cargo-generate generate --path $GIT_ROOT $TEMPLATE --name $CRATE_NAME
+    cargo-generate generate --path "$GIT_ROOT/$TEMPLATE" --name "$CRATE_NAME"
     cd $CRATE_NAME
     cargo build --release
     obelisk server verify --deployment deployment.toml
