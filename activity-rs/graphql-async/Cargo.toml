@@ -10,13 +10,13 @@ crate-type = ["cdylib"]
 [dependencies]
 anyhow = "1.0"
 chrono = { version = "0.4.45", features = ["serde"] }
-cynic = "3.13.2"
+cynic = "3.14.0"
 serde_json = "1"
 wit-bindgen = "0.59.0"
 wstd = "0.6.7"
 
 [build-dependencies]
-cynic-codegen = "3.13.2"
+cynic-codegen = "3.14.0"
 anyhow = "1.0"
 wit-bindgen-rust = "0.59.0"
 wit-parser = "0.253.0"
