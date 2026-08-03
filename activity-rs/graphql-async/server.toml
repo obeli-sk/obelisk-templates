@@ -1,0 +1,8 @@
+[secrets]
+GITHUB_TOKEN = { env = "GITHUB_TOKEN" }
+
+[[outbound_http.allowed_host]]
+pattern = "https://api.github.com"
+methods = ["POST"]
+secrets = ["GITHUB_TOKEN"]
+replace_in = ["headers"]

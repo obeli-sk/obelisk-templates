@@ -1,0 +1,7 @@
+[[outbound_http.allowed_host]]
+pattern = "https://api.ipify.org"
+methods = ["GET"]
+
+[[outbound_http.allowed_host]]
+pattern = "http://localhost:8080"
+methods = ["GET"]

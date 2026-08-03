@@ -9,7 +9,7 @@
       };
     };
     obelisk = {
-      url = "github:obeli-sk/obelisk/latest";
+      url = "github:obeli-sk/obelisk/latest-pre";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";

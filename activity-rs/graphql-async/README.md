@@ -62,7 +62,7 @@ cargo test -- --ignored --nocapture
 ### Run the Server
 Start the server:
 ```sh
-obelisk server run --deployment deployment.toml
+obelisk server run --server-config server.toml --deployment deployment.toml
 ```
 
 ### Test the Activity
