@@ -2,4 +2,4 @@
 target = "wasm32-wasip2"
 
 [target.wasm32-wasip2]
-runner = "wasmtime run -Scli -Shttp --env GITHUB_TOKEN --env TEST_OWNER --env TEST_REPO"
+runner = "wasmtime run -Scli -Shttp --env GITHUB_TOKEN --env GITHUB_GRAPHQL_URL --env TEST_OWNER --env TEST_REPO"

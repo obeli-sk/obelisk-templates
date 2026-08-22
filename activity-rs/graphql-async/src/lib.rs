@@ -26,6 +26,9 @@ async fn send_query(
 ) -> Result<GraphQlResponse<Releases>, anyhow::Error> {
     let github_token =
         std::env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN must be passed as environment variable");
+    // Overridable so tests can point at a local mock instead of the live API.
+    let graphql_url = std::env::var("GITHUB_GRAPHQL_URL")
+        .unwrap_or_else(|_| "https://api.github.com/graphql".to_string());
     let query = build_query(&owner, &repo);
     println!("query to send: {query:?}");
 
@@ -34,7 +37,7 @@ async fn send_query(
         .header("Content-Type", "application/json")
         .header("User-Agent", "test")
         .method(Method::POST)
-        .uri("https://api.github.com/graphql")
+        .uri(&graphql_url)
         .body(
             Body::from_json(&query)
                 .with_context(|| format!("cannot serialize the query {query:?}"))?,

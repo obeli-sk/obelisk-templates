@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 cleanup() {
+    [[ -n "${MOCK_PID:-}" ]] && kill "$MOCK_PID" 2>/dev/null || true
     rm -rf $tmp_dir; echo 'Temporary directory removed'
     echo "Sending SIGINT to process $PID..."
     kill -SIGINT $PID

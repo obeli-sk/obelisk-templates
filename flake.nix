@@ -33,6 +33,7 @@
             just
             nixpkgs-fmt
             pkg-config
+            python3
             rustToolchain
             wasm-tools
             wasmtime.out

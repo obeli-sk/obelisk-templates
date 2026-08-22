@@ -2,7 +2,7 @@
 GITHUB_TOKEN = { env = "GITHUB_TOKEN" }
 
 [[outbound_http.allowed_host]]
-pattern = "https://api.github.com"
+pattern = "${GITHUB_GRAPHQL_ORIGIN:-https://api.github.com}"
 methods = ["POST"]
 secrets = ["GITHUB_TOKEN"]
 replace_in = ["headers"]
