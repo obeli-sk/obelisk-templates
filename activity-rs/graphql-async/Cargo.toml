@@ -12,13 +12,13 @@ anyhow = "1.0"
 chrono = { version = "0.4.45", features = ["serde"] }
 cynic = "3.13.2"
 serde_json = "1"
-wit-bindgen = "0.59.0"
+wit-bindgen = "0.61.0"
 wstd = "0.6.7"
 
 [build-dependencies]
 cynic-codegen = "3.13.2"
 anyhow = "1.0"
-wit-bindgen-rust = "0.59.0"
+wit-bindgen-rust = "0.61.0"
 wit-parser = "0.253.0"
 
 [profile.release]
