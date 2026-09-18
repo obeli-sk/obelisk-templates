@@ -37,6 +37,15 @@ Build the webhook endpoint in release mode:
 cargo build --release
 ```
 
+Generate and build the `fibo/activity` and `fibo/workflow` templates as `activity_myfibo` and
+`workflow_myfibo`, then copy their artifacts into this project before starting Obelisk:
+
+```sh
+mkdir -p components
+cp ../activity_myfibo/target/wasm32-wasip2/release/activity_myfibo.wasm components/
+cp ../workflow_myfibo/target/wasm32-unknown-unknown/release/workflow_myfibo.wasm components/
+```
+
 Note: The built WASM Component "target/wasm32-wasip2/release/{{crate_name}}.wasm" is
 already part of the provided [deployment.toml](./deployment.toml) configuration file.
 

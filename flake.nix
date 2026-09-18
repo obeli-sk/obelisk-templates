@@ -9,7 +9,7 @@
       };
     };
     obelisk = {
-      url = "github:obeli-sk/obelisk/latest";
+      url = "github:obeli-sk/obelisk/latest-rc";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
@@ -34,9 +34,12 @@
             nixpkgs-fmt
             pkg-config
             python3
+            gh
+            jq
             rustToolchain
             wasm-tools
             wasmtime.out
+            yq-go
           ];
         in
         {

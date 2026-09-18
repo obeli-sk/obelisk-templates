@@ -41,6 +41,14 @@ Build the workflow in release mode:
 cargo build --release
 ```
 
+Generate and build the `fibo/activity` template as `activity_myfibo`, then copy its component into
+this project before starting Obelisk:
+
+```sh
+mkdir -p components
+cp ../activity_myfibo/target/wasm32-wasip2/release/activity_myfibo.wasm components/
+```
+
 Note: Since the build target is set to `wasm32-unknown-unknown` in [.cargo/config.toml](.cargo/config.toml)
 the WASM artifact is a Core WASM Module, not a WASM Component. Obelisk converts it to a component automatically during
 server startup.
