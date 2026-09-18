@@ -1,6 +1,9 @@
 [secrets]
 GITHUB_TOKEN = { env = "GITHUB_TOKEN" }
 
+[public_env]
+allowed = ["GITHUB_GRAPHQL_ORIGIN", "GITHUB_GRAPHQL_URL"]
+
 [[outbound_http.allowed_host]]
 pattern = "${GITHUB_GRAPHQL_ORIGIN:-https://api.github.com}"
 methods = ["POST"]

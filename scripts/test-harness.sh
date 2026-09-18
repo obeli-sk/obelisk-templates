@@ -39,9 +39,26 @@ run_test() {
     echo "Temporary directory created: $tmp_dir"
     cd $tmp_dir
 
+    if [[ ${WITH_FIBO_ACTIVITY:-0} == 1 ]]; then
+        cargo-generate generate --path "$GIT_ROOT/fibo/activity" --name activity_myfibo
+        (cd activity_myfibo && env -u CARGO_TARGET_DIR cargo build --release)
+    fi
+    if [[ ${WITH_FIBO_WORKFLOW:-0} == 1 ]]; then
+        cargo-generate generate --path "$GIT_ROOT/fibo/workflow" --name workflow_myfibo
+        (cd workflow_myfibo && env -u CARGO_TARGET_DIR cargo build --release)
+    fi
+
     cargo-generate generate --path "$GIT_ROOT/$TEMPLATE" --name "$CRATE_NAME"
     cd $CRATE_NAME
-    cargo build --release
+    if [[ ${WITH_FIBO_ACTIVITY:-0} == 1 ]]; then
+        mkdir -p components
+        cp ../activity_myfibo/target/wasm32-wasip2/release/activity_myfibo.wasm components/
+    fi
+    if [[ ${WITH_FIBO_WORKFLOW:-0} == 1 ]]; then
+        mkdir -p components
+        cp ../workflow_myfibo/target/wasm32-unknown-unknown/release/workflow_myfibo.wasm components/
+    fi
+    env -u CARGO_TARGET_DIR cargo build --release
     server_args=()
     if [[ -f server.toml ]]; then
         server_args+=(--server-config server.toml)
