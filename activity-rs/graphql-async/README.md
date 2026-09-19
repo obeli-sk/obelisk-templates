@@ -24,6 +24,12 @@ No scopes need to be selected. Export the token as an environment variable:
 export GITHUB_TOKEN="$(gh auth token)"
 ```
 
+The provided configuration registers `GITHUB_TOKEN` as a server-owned secret and uses outbound
+HTTP header placeholder replacement. The activity can authorize its GitHub request without reading
+the token plaintext. `GITHUB_GRAPHQL_URL` and `GITHUB_GRAPHQL_ORIGIN` are non-secret settings and
+are therefore listed under `[public_env].allowed`. Do not move the token into `env_vars` or
+`public_env`.
+
 If using `direnv` with Nix:
 ```sh
 cp .envrc-example .envrc
