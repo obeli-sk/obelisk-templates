@@ -67,6 +67,13 @@ The output should look like this:
 hardcoded: 1
 ```
 
+If you extend the webhook to validate an inbound signature, register the signing key in
+`server.toml`, request its logical name with `webhook_endpoint_wasm.exposed_secrets`, and authorize
+the digest printed by `obelisk generate secret-config-digest --deployment deployment.toml` under
+`[secrets.<name>.exposed_to]`. Plaintext exposure is appropriate for signature validation because
+the webhook must read the key. Keep credentials used only for outbound requests on the safer
+`allowed_host.secrets` placeholder path instead.
+
 ## Next steps
 
 ### Push the WASM Component to an OCI Registry

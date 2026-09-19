@@ -27,6 +27,28 @@ Run the following command to interactively select and generate a template:
 cargo generate obeli-sk/obelisk-templates
 ```
 
+## Environment variables and secrets
+
+Use component `env_vars` only for non-secret configuration, and allow inherited names through the
+server's `[public_env].allowed` list. Register credentials under `[secrets]` in `server.toml`.
+
+For credentials used only in outbound HTTP requests, put the logical secret name in matching
+`allowed_host.secrets` entries in both files and set `replace_in`. Obelisk replaces an opaque
+placeholder only while sending an authorized request, so component code cannot read the plaintext.
+The GraphQL activity template demonstrates this preferred model.
+
+Use component `exposed_secrets` only when activity or webhook code must read the value, such as an
+inbound webhook signing key. Generate the digest-bound operator grant after the component and its
+complete secret set are final:
+
+```sh
+obelisk generate secret-config-digest --deployment deployment.toml
+```
+
+Copy the generated `[secrets.<name>.exposed_to]` entry into `server.toml`. Regenerate it whenever
+the component or requested secret set changes. Never put credentials in `public_env` or ordinary
+`env_vars`.
+
 `cargo-generate` will prompt you to choose a template subdirectory and a project name.
 
 To generate a specific template directly, pass the subfolder as an argument:
